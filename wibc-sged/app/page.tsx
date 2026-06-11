@@ -213,11 +213,11 @@ export default function AssessmentWizard() {
       
       <div style={{ background: "var(--color-surface-2)", padding: "1.5rem", borderRadius: "var(--radius-md)", textAlign: "left", maxWidth: "600px", margin: "0 auto 2.5rem", border: "1px solid var(--color-border-light)" }}>
         <h3 style={{ fontSize: "1rem", marginBottom: "1rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <Info size={16} style={{ color: "var(--color-primary)" }} /> What to expect
+          <Info size={16} style={{ color: "var(--color-primary)" }} /> How to take the assessment
         </h3>
         <ul style={{ paddingLeft: "1.5rem", color: "var(--color-text-muted)", fontSize: "0.9375rem", display: "flex", flexDirection: "column", gap: "0.625rem" }}>
-          <li>You will be asked a single maturity question across 7 key goals.</li>
-          <li>For each goal, select the option (Level 1 to Level 5) that best reflects your current organisational practice.</li>
+          <li>You’ll be asked a single maturity question across 7 key goals.</li>
+          <li>For each goal, select the option (choosing from Level 1, 3 or 5) that best reflects your current organisational practice. You’ll have the opportunity for a more granular assessment once you’ve run this initial diagnostic.</li>
           <li>The assessment takes approximately 5 minutes to complete.</li>
           <li>At the end, you'll receive a detailed maturity scorecard and recommended next steps.</li>
         </ul>
