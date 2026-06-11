@@ -22,9 +22,7 @@ const GOALS = [
     question: "Does your organisation proactively offer and role-model flexible working at all levels?",
     levels: [
       { value: 1, label: "Level 1: Compliance", text: "We comply with statutory flexible working request laws." },
-      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 3, label: "Level 3: Developing", text: "We have a ‘Flexible by Default’ culture. Flexibility and leave policies are mentioned in all job ads, and we support menopause/menstrual health adjustments via manager-led accommodations." },
-      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 5, label: "Level 5: Leading", text: "We have a market-leading approach (e.g., 4-day week) and a contractual ‘Right to Disconnect’ to prevent burnout." }
     ]
   },
@@ -34,9 +32,7 @@ const GOALS = [
     question: "Do women, including those from marginalised backgrounds, have equal representation in your senior leadership and Board?",
     levels: [
       { value: 1, label: "Level 1: Compliance", text: "We track gender representation at a high level." },
-      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 3, label: "Level 3: Developing", text: "We set intersectional targets (Race/Disability/Class) and have audited our senior roles to remove ‘class-coded’ barriers (e.g., elite university bias)." },
-      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 5, label: "Level 5: Leading", text: "Executive bonuses are tied to D&I outcomes. We use live dashboards to ensure women move through the pipeline at the same velocity as men." }
     ]
   },
@@ -46,9 +42,7 @@ const GOALS = [
     question: "Is there clear executive accountability for gender equity and a proven ‘Preventative Duty’ regarding workplace safety?",
     levels: [
       { value: 1, label: "Level 1: Compliance", text: "We have a named EDI lead and a standard anti-harassment policy." },
-      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 3, label: "Level 3: Developing", text: "We meet the ‘Statutory Preventative Duty’ for sexual harassment. Our Employee Resource Groups (ERGs) are consulted on policy design, and we conduct workplace menopause risk assessments." },
-      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 5, label: "Level 5: Leading", text: "We provide independent, third-party reporting lines for harassment and offer paid leave for domestic abuse survivors." }
     ]
   },
@@ -58,9 +52,7 @@ const GOALS = [
     question: "Do you have clear pathways to management for women in frontline, operational, or lower-paid roles?",
     levels: [
       { value: 1, label: "Level 1: Compliance", text: "Internal vacancies are posted on staff boards/intranets." },
-      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 3, label: "Level 3: Developing", text: "We have removed degree requirements from internal roles and budget for childcare/travel costs to ensure lower-paid staff can attend training." },
-      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 5, label: "Level 5: Leading", text: "We benchmark social mobility and provide ‘Cultural Capital’ coaching to women from working-class backgrounds to support their progression." }
     ]
   },
@@ -70,9 +62,7 @@ const GOALS = [
     question: "Are you transparent about pay and committed to closing intersectional pay and pension gaps?",
     levels: [
       { value: 1, label: "Level 1: Compliance", text: "We complete statutory Gender Pay Gap reporting." },
-      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 3, label: "Level 3: Developing", text: "We are an accredited Real Living Wage employer. We publish salary bands internally and state salary ranges on all job ads." },
-      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 5, label: "Level 5: Leading", text: "We maintain full employer pension contributions during the entire duration of all parental leave to mitigate the ‘motherhood pension gap’." }
     ]
   },
@@ -82,9 +72,7 @@ const GOALS = [
     question: "Are your recruitment and performance systems designed to be neuro-inclusive and free from systemic bias?",
     levels: [
       { value: 1, label: "Level 1: Compliance", text: "Hiring managers take basic unconscious bias training." },
-      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 3, label: "Level 3: Developing", text: "We share interview questions 48 hours in advance (Neuro-inclusion) and use blind-screening (removing names/universities) for all CVs." },
-      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 5, label: "Level 5: Leading", text: "We use AI or peer-audits to ensure performance appraisal language is objective. Our HR systems are fully trans-inclusive by design." }
     ]
   },
@@ -94,9 +82,7 @@ const GOALS = [
     question: "Do you provide women with the social capital and networking opportunities needed to thrive?",
     levels: [
       { value: 1, label: "Level 1: Compliance", text: "We have a women’s network that holds social events." },
-      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 3, label: "Level 3: Developing", text: "Our network leadership is intersectional, and we have a dedicated budget for external coaching for underrepresented women." },
-      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
       { value: 5, label: "Level 5: Leading", text: "We have a mandatory Reverse Mentoring programme for senior leaders. We require our own sub-contractors to meet equity standards." }
     ]
   }
@@ -266,7 +252,7 @@ export default function AssessmentWizard() {
         </div>
 
         {/* Levels List */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem" }} role="group" aria-label={`Maturity options for ${goal.title}`}>
+        <div className="scale-grid" role="group" aria-label={`Maturity options for ${goal.title}`}>
           {goal.levels.map((level) => {
             const isSelected = currentScore === level.value;
             return (
@@ -276,29 +262,10 @@ export default function AssessmentWizard() {
                 onClick={() => handleScoreChange(goal.id, level.value)}
                 aria-pressed={isSelected}
                 className={`scale-button ${isSelected ? "selected" : ""}`}
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  gap: "1.25rem",
-                  padding: "1.25rem 1.5rem",
-                  width: "100%",
-                  textAlign: "left",
-                  transform: "none",
-                  transition: "all 0.15s ease"
-                }}
               >
-                <div className="scale-num" style={{ width: "32px", height: "32px", fontSize: "0.95rem" }}>
-                  {level.value}
-                </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem", flex: 1 }}>
-                  <div className="scale-label-text" style={{ fontSize: "0.95rem" }}>
-                    {level.label}
-                  </div>
-                  <div className="scale-desc-text" style={{ fontSize: "0.85rem", lineHeight: 1.45 }}>
-                    {level.text}
-                  </div>
-                </div>
+                <div className="scale-num">{level.value}</div>
+                <div className="scale-label-text">{level.label}</div>
+                <div className="scale-desc-text">{level.text}</div>
               </button>
             );
           })}
