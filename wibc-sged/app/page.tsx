@@ -200,14 +200,6 @@ export default function AssessmentWizard() {
         <div className="progress-track">
           <div className="progress-fill" style={{ width: `${pct}%` }} />
         </div>
-        <div className="step-dots" aria-hidden="true">
-          {Array.from({ length: totalProgressSteps }).map((_, i) => (
-            <div
-              key={i}
-              className={`step-dot ${i < adjustedStep ? "completed" : ""} ${i === adjustedStep ? "active" : ""}`}
-            />
-          ))}
-        </div>
       </div>
     );
   };
