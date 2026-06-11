@@ -19,71 +19,85 @@ const GOALS = [
   {
     id: "flexible_working",
     title: "Flexible & Part-Time Working",
-    description: "Does your organisation proactively offer and role-model flexible working at all levels?",
-    questions: [
-      "We comply with statutory flexible working request laws.",
-      "We have a ‘Flexible by Default’ culture. Flexibility and leave policies are mentioned in all job ads, and we support menopause/menstrual health adjustments via manager-led accommodations.",
-      "We have a market-leading approach (e.g., 4-day week) and a contractual ‘Right to Disconnect’ to prevent burnout."
+    question: "Does your organisation proactively offer and role-model flexible working at all levels?",
+    levels: [
+      { value: 1, label: "Level 1: Compliance", text: "We comply with statutory flexible working request laws." },
+      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 3, label: "Level 3: Developing", text: "We have a ‘Flexible by Default’ culture. Flexibility and leave policies are mentioned in all job ads, and we support menopause/menstrual health adjustments via manager-led accommodations." },
+      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 5, label: "Level 5: Leading", text: "We have a market-leading approach (e.g., 4-day week) and a contractual ‘Right to Disconnect’ to prevent burnout." }
     ]
   },
   {
     id: "senior_representation",
     title: "Representative Senior Leadership",
-    description: "Do women, including those from marginalised backgrounds, have equal representation in your senior leadership and Board?",
-    questions: [
-      "We track gender representation at a high level.",
-      "We set intersectional targets (Race/Disability/Class) and have audited our senior roles to remove ‘class-coded’ barriers (e.g., elite university bias).",
-      "Executive bonuses are tied to D&I outcomes. We use live dashboards to ensure women move through the pipeline at the same velocity as men."
+    question: "Do women, including those from marginalised backgrounds, have equal representation in your senior leadership and Board?",
+    levels: [
+      { value: 1, label: "Level 1: Compliance", text: "We track gender representation at a high level." },
+      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 3, label: "Level 3: Developing", text: "We set intersectional targets (Race/Disability/Class) and have audited our senior roles to remove ‘class-coded’ barriers (e.g., elite university bias)." },
+      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 5, label: "Level 5: Leading", text: "Executive bonuses are tied to D&I outcomes. We use live dashboards to ensure women move through the pipeline at the same velocity as men." }
     ]
   },
   {
     id: "executive_accountability",
     title: "Executive Accountability & Safe Culture",
-    description: "Is there clear executive accountability for gender equity and a proven ‘Preventative Duty’ regarding workplace safety?",
-    questions: [
-      "We have a named EDI lead and a standard anti-harassment policy.",
-      "We meet the ‘Statutory Preventative Duty’ for sexual harassment. Our Employee Resource Groups (ERGs) are consulted on policy design, and we conduct workplace menopause risk assessments.",
-      "We provide independent, third-party reporting lines for harassment and offer paid leave for domestic abuse survivors."
+    question: "Is there clear executive accountability for gender equity and a proven ‘Preventative Duty’ regarding workplace safety?",
+    levels: [
+      { value: 1, label: "Level 1: Compliance", text: "We have a named EDI lead and a standard anti-harassment policy." },
+      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 3, label: "Level 3: Developing", text: "We meet the ‘Statutory Preventative Duty’ for sexual harassment. Our Employee Resource Groups (ERGs) are consulted on policy design, and we conduct workplace menopause risk assessments." },
+      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 5, label: "Level 5: Leading", text: "We provide independent, third-party reporting lines for harassment and offer paid leave for domestic abuse survivors." }
     ]
   },
   {
     id: "frontline_progression",
     title: "Progression from Lower-Paid Roles",
-    description: "Do you have clear pathways to management for women in frontline, operational, or lower-paid roles?",
-    questions: [
-      "Internal vacancies are posted on staff boards/intranets.",
-      "We have removed degree requirements from internal roles and budget for childcare/travel costs to ensure lower-paid staff can attend training.",
-      "We benchmark social mobility and provide ‘Cultural Capital’ coaching to women from working-class backgrounds to support their progression."
+    question: "Do you have clear pathways to management for women in frontline, operational, or lower-paid roles?",
+    levels: [
+      { value: 1, label: "Level 1: Compliance", text: "Internal vacancies are posted on staff boards/intranets." },
+      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 3, label: "Level 3: Developing", text: "We have removed degree requirements from internal roles and budget for childcare/travel costs to ensure lower-paid staff can attend training." },
+      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 5, label: "Level 5: Leading", text: "We benchmark social mobility and provide ‘Cultural Capital’ coaching to women from working-class backgrounds to support their progression." }
     ]
   },
   {
     id: "intersectional_pay_gap",
     title: "Closing the Intersectional Pay Gap",
-    description: "Are you transparent about pay and committed to closing intersectional pay and pension gaps?",
-    questions: [
-      "We complete statutory Gender Pay Gap reporting.",
-      "We are an accredited Real Living Wage employer. We publish salary bands internally and state salary ranges on all job ads.",
-      "We maintain full employer pension contributions during the entire duration of all parental leave to mitigate the ‘motherhood pension gap’."
+    question: "Are you transparent about pay and committed to closing intersectional pay and pension gaps?",
+    levels: [
+      { value: 1, label: "Level 1: Compliance", text: "We complete statutory Gender Pay Gap reporting." },
+      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 3, label: "Level 3: Developing", text: "We are an accredited Real Living Wage employer. We publish salary bands internally and state salary ranges on all job ads." },
+      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 5, label: "Level 5: Leading", text: "We maintain full employer pension contributions during the entire duration of all parental leave to mitigate the ‘motherhood pension gap’." }
     ]
   },
   {
     id: "bias_free_recruitment",
     title: "Bias-Free Recruitment & Appraisals",
-    description: "Are your recruitment and performance systems designed to be neuro-inclusive and free from systemic bias?",
-    questions: [
-      "Hiring managers take basic unconscious bias training.",
-      "We share interview questions 48 hours in advance (Neuro-inclusion) and use blind-screening (removing names/universities) for all CVs.",
-      "We use AI or peer-audits to ensure performance appraisal language is objective. Our HR systems are fully trans-inclusive by design."
+    question: "Are your recruitment and performance systems designed to be neuro-inclusive and free from systemic bias?",
+    levels: [
+      { value: 1, label: "Level 1: Compliance", text: "Hiring managers take basic unconscious bias training." },
+      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 3, label: "Level 3: Developing", text: "We share interview questions 48 hours in advance (Neuro-inclusion) and use blind-screening (removing names/universities) for all CVs." },
+      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 5, label: "Level 5: Leading", text: "We use AI or peer-audits to ensure performance appraisal language is objective. Our HR systems are fully trans-inclusive by design." }
     ]
   },
   {
     id: "sponsorship_networks",
     title: "Mentoring, Sponsorship & Networks",
-    description: "Do you provide women with the social capital and networking opportunities needed to thrive?",
-    questions: [
-      "We have a women’s network that holds social events.",
-      "Our network leadership is intersectional, and we have a dedicated budget for external coaching for underrepresented women.",
-      "We have a mandatory Reverse Mentoring programme for senior leaders. We require our own sub-contractors to meet equity standards."
+    question: "Do you provide women with the social capital and networking opportunities needed to thrive?",
+    levels: [
+      { value: 1, label: "Level 1: Compliance", text: "We have a women’s network that holds social events." },
+      { value: 2, label: "Level 2: Emerging", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 3, label: "Level 3: Developing", text: "Our network leadership is intersectional, and we have a dedicated budget for external coaching for underrepresented women." },
+      { value: 4, label: "Level 4: Established", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      { value: 5, label: "Level 5: Leading", text: "We have a mandatory Reverse Mentoring programme for senior leaders. We require our own sub-contractors to meet equity standards." }
     ]
   }
 ];
@@ -94,9 +108,9 @@ export default function AssessmentWizard() {
   const router = useRouter();
   const [step, setStep] = useState(0);
 
-  // Nested scores: { goalId: { qIndex: score } }
-  const [scores, setScores] = useState<Record<string, Record<number, number>>>(
-    GOALS.reduce((acc, goal) => ({ ...acc, [goal.id]: { 0: 0, 1: 0, 2: 0 } }), {})
+  // Scores: { goalId: score }
+  const [scores, setScores] = useState<Record<string, number>>(
+    GOALS.reduce((acc, goal) => ({ ...acc, [goal.id]: 0 }), {})
   );
 
   const [formData, setFormData] = useState({
@@ -119,15 +133,15 @@ export default function AssessmentWizard() {
     if (step > 0) { setStep(s => s - 1); window.scrollTo({ top: 0, behavior: "smooth" }); }
   };
 
-  const handleScoreChange = (goalId: string, qIndex: number, value: number) => {
-    setScores(prev => ({ ...prev, [goalId]: { ...prev[goalId], [qIndex]: value } }));
+  const handleScoreChange = (goalId: string, value: number) => {
+    setScores(prev => ({ ...prev, [goalId]: value }));
   };
 
   const isCurrentStepValid = () => {
     if (step === 0) return true; // Intro
     if (step > GOALS.length) return true; // Intake
     const s = scores[GOALS[step - 1].id];
-    return s[0] > 0 && s[1] > 0 && s[2] > 0;
+    return s > 0;
   };
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -151,16 +165,10 @@ export default function AssessmentWizard() {
     setIsSubmitting(true);
     setSubmitError("");
     try {
-      const averagedScores: Record<string, number> = {};
-      Object.keys(scores).forEach(goalId => {
-        const q = scores[goalId];
-        averagedScores[goalId] = Math.round((q[0] + q[1] + q[2]) / 3);
-      });
-
       const res = await fetch("/api/diagnostic/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, scores: averagedScores })
+        body: JSON.stringify({ ...formData, scores })
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Submission failed");
@@ -230,10 +238,10 @@ export default function AssessmentWizard() {
           <Info size={16} style={{ color: "var(--color-primary)" }} /> What to expect
         </h3>
         <ul style={{ paddingLeft: "1.5rem", color: "var(--color-text-muted)", fontSize: "0.9375rem", display: "flex", flexDirection: "column", gap: "0.625rem" }}>
-          <li>You will be asked 3 granular questions across 7 goals (21 questions total).</li>
-          <li>For each question, select the option from "Not in place" to "Leading" that best reflects your current organisational practice.</li>
-          <li>The assessment takes approximately 5-10 minutes to complete.</li>
-          <li>At the end, you'll receive a detailed maturity scorecard and tailored procurement advice.</li>
+          <li>You will be asked a single maturity question across 7 key goals.</li>
+          <li>For each goal, select the option (Level 1 to Level 5) that best reflects your current organisational practice.</li>
+          <li>The assessment takes approximately 5 minutes to complete.</li>
+          <li>At the end, you'll receive a detailed maturity scorecard and recommended next steps.</li>
         </ul>
       </div>
 
@@ -250,78 +258,62 @@ export default function AssessmentWizard() {
   const renderAssessmentStep = () => {
     const goalIndex = step - 1;
     const goal = GOALS[goalIndex];
-    const currentScores = scores[goal.id];
-    const answered = [0, 1, 2].filter(i => currentScores[i] > 0).length;
+    const currentScore = scores[goal.id];
 
     return (
       <div className="card">
         {/* Goal Header */}
-        <div className="goal-header">
+        <div className="goal-header" style={{ marginBottom: "1.5rem", paddingBottom: "1.5rem" }}>
           <div className="goal-badge">
             <span>Goal {goalIndex + 1} of {GOALS.length}</span>
           </div>
-          <h2>{goal.title}</h2>
-          <p className="goal-question">&ldquo;{goal.description}&rdquo;</p>
+          <h2 style={{ fontSize: "1.75rem", marginBottom: "0.5rem" }}>{goal.title}</h2>
+          <p className="goal-question" style={{ fontSize: "1.125rem", fontStyle: "normal", color: "var(--color-text)", fontWeight: 500, margin: "0.75rem 0 0" }}>
+            {goal.question}
+          </p>
         </div>
 
-        {/* Questions */}
-        {goal.questions.map((q, index) => {
-          const isAnswered = currentScores[index] > 0;
-          return (
-            <div key={index} className="question-block">
-              <p className="question-text">
-                <span style={{ 
-                  display: "inline-flex", 
-                  alignItems: "center", 
-                  justifyContent: "center",
-                  width: "20px", 
-                  height: "20px", 
-                  borderRadius: "50%",
-                  background: isAnswered ? "var(--color-primary)" : "var(--color-border)",
-                  color: isAnswered ? "white" : "var(--color-text-muted)",
-                  fontSize: "0.7rem",
-                  fontWeight: 700,
-                  marginRight: "0.5rem",
-                  verticalAlign: "middle",
-                  flexShrink: 0,
-                  fontFamily: "var(--font-heading)",
-                  transition: "background-color 0.2s ease, color 0.2s ease"
-                }}>
-                  {index + 1}
-                </span>
-                {q}
-              </p>
-
-              <div className="scale-grid" role="group" aria-label={`Rating for question ${index + 1}`}>
-                {MATURITY_SCALE.map((scale) => {
-                  const isSelected = currentScores[index] === scale.value;
-                  return (
-                    <button
-                      key={scale.value}
-                      type="button"
-                      onClick={() => handleScoreChange(goal.id, index, scale.value)}
-                      aria-pressed={isSelected}
-                      className={`scale-button ${isSelected ? "selected" : ""}`}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          e.preventDefault();
-                          handleScoreChange(goal.id, index, scale.value);
-                        }
-                      }}
-                    >
-                      <div className="scale-num">{scale.value}</div>
-                      <div className="scale-label-text">{scale.label}</div>
-                      <div className="scale-desc-text">{scale.desc}</div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })}
+        {/* Levels List */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem" }} role="group" aria-label={`Maturity options for ${goal.title}`}>
+          {goal.levels.map((level) => {
+            const isSelected = currentScore === level.value;
+            return (
+              <button
+                key={level.value}
+                type="button"
+                onClick={() => handleScoreChange(goal.id, level.value)}
+                aria-pressed={isSelected}
+                className={`scale-button ${isSelected ? "selected" : ""}`}
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: "1.25rem",
+                  padding: "1.25rem 1.5rem",
+                  width: "100%",
+                  textAlign: "left",
+                  transform: "none",
+                  transition: "all 0.15s ease"
+                }}
+              >
+                <div className="scale-num" style={{ width: "32px", height: "32px", fontSize: "0.95rem" }}>
+                  {level.value}
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem", flex: 1 }}>
+                  <div className="scale-label-text" style={{ fontSize: "0.95rem" }}>
+                    {level.label}
+                  </div>
+                  <div className="scale-desc-text" style={{ fontSize: "0.85rem", lineHeight: 1.45 }}>
+                    {level.text}
+                  </div>
+                </div>
+              </button>
+            );
+          })}
+        </div>
 
         {/* Navigation */}
-        <div className="form-nav">
+        <div className="form-nav" style={{ marginTop: "2rem" }}>
           <button
             type="button"
             className="btn btn-secondary"
@@ -330,21 +322,14 @@ export default function AssessmentWizard() {
             Back
           </button>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-            {!isCurrentStepValid() && (
-              <span style={{ fontSize: "0.8125rem", color: "var(--color-text-muted)" }}>
-                {answered}/3 answered
-              </span>
-            )}
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={handleNext}
-              disabled={!isCurrentStepValid()}
-            >
-              Next
-            </button>
-          </div>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={handleNext}
+            disabled={!isCurrentStepValid()}
+          >
+            Next
+          </button>
         </div>
       </div>
     );
