@@ -598,7 +598,11 @@ a:hover { color: var(--color-primary-light); }
     align-items: center;
   }
   .scale-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  .goal-header {
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
   }
   .form-grid-2 {
     grid-template-columns: 1fr;

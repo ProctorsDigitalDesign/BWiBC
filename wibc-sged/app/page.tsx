@@ -241,7 +241,7 @@ export default function AssessmentWizard() {
     return (
       <div className="card">
         {/* Goal Header */}
-        <div className="goal-header" style={{ marginBottom: "1.5rem", paddingBottom: "1.5rem" }}>
+        <div className="goal-header">
           <div className="goal-badge">
             <span>Goal {goalIndex + 1} of {GOALS.length}</span>
           </div>
