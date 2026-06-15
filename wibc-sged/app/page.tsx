@@ -945,7 +945,7 @@ export default function AssessmentWizard() {
             type="submit"
             className="btn btn-primary"
             disabled={isRedirectingToStripe}
-            style={{ minWidth: "160px", justifyContent: "center", backgroundColor: "var(--color-primary)", color: "white" }}
+            style={{ minWidth: "160px", justifyContent: "center" }}
           >
             {isRedirectingToStripe ? (
               <>
@@ -953,7 +953,7 @@ export default function AssessmentWizard() {
                 Redirecting to Stripe...
               </>
             ) : (
-              "Proceed to Payment via Stripe"
+              "Proceed"
             )}
           </button>
         </div>
