@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), 'DM Serif Text', Georgia, serif;
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   color: #000000;
   text-wrap: balance;
 }
@@ -168,7 +168,7 @@ a:hover { color: var(--color-primary-light); }
   font-size: 1rem;
   font-weight: 800;
   color: var(--color-primary);
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   line-height: 1.1;
   margin: 0;
 }
@@ -177,7 +177,7 @@ a:hover { color: var(--color-primary-light); }
   font-size: 0.7rem;
   color: var(--color-text-muted);
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -275,7 +275,7 @@ a:hover { color: var(--color-primary-light); }
   font-weight: 400;
   margin-bottom: 0.5rem;
   color: #000000;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
 }
 
 .form-label .label-icon {
@@ -746,7 +746,7 @@ a:hover { color: var(--color-primary-light); }
   font-weight: 600;
   font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
 }
 
 .composition-table input.form-input {
