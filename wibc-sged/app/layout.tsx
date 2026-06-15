@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-import { League_Spartan, Open_Sans } from "next/font/google";
+import { DM_Serif_Text } from "next/font/google";
 import Image from "next/image";
 import "./globals.css";
 
-const openSans = Open_Sans({ 
-  subsets: ["latin"], 
-  variable: "--font-body",
-  display: "swap"
-});
-const leagueSpartan = League_Spartan({ 
+const dmSerifText = DM_Serif_Text({ 
+  weight: "400",
   subsets: ["latin"], 
   variable: "--font-heading",
   display: "swap"
@@ -30,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${openSans.variable} ${leagueSpartan.variable}`}>
+      <body className={`${dmSerifText.variable}`}>
         <header className="site-header">
           <div className="site-header-content">
             <a href="/" className="site-logo">
