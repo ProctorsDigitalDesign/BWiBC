@@ -1,6 +1,6 @@
 'use server'
-
 import { createAdminClient } from '@/lib/supabase'
+import { upsertHubSpotWaitlistContact } from '@/lib/hubspot'
 
 export async function submitInterest(formData: FormData) {
   const name = formData.get('name') as string
@@ -35,9 +35,23 @@ export async function submitInterest(formData: FormData) {
       return { error: 'An unexpected error occurred. Please try again later.' }
     }
 
+    // Sync to HubSpot (non-blocking)
+    try {
+      await upsertHubSpotWaitlistContact({
+        firstname: name,
+        lastname: surname,
+        email,
+        company,
+        position,
+      })
+    } catch (hubspotError) {
+      console.error('[HubSpot] Waitlist sync error (non-fatal):', hubspotError)
+    }
+
     return { success: true }
   } catch (err) {
     console.error('Server error submitting interest:', err)
     return { error: 'A server error occurred. Please try again.' }
   }
 }
+

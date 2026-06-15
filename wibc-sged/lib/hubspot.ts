@@ -166,3 +166,47 @@ export async function upsertHubSpotContact(params: {
     return newId
   }
 }
+
+/**
+ * Creates or updates a HubSpot contact specifically for waitlist submissions.
+ */
+export async function upsertHubSpotWaitlistContact(params: {
+  firstname: string
+  lastname: string
+  email: string
+  company: string
+  position: string
+}): Promise<string> {
+  const token = process.env.HUBSPOT_ACCESS_TOKEN
+
+  if (!token || token === 'your-hubspot-private-app-token') {
+    console.warn(
+      '[HubSpot] HUBSPOT_ACCESS_TOKEN not configured — skipping waitlist CRM sync.'
+    )
+    return 'skipped'
+  }
+
+  const properties = {
+    email: params.email,
+    firstname: params.firstname,
+    lastname: params.lastname,
+    company: params.company,
+    jobtitle: params.position,
+  }
+
+  const existingId = await findContactByEmail(params.email, token)
+
+  if (existingId) {
+    await updateContact(existingId, properties, token)
+    console.log(`[HubSpot] Updated waitlist contact ${existingId} (${params.email})`)
+    return existingId
+  } else {
+    const newId = await createContact(
+      properties as any,
+      token
+    )
+    console.log(`[HubSpot] Created waitlist contact ${newId} (${params.email})`)
+    return newId
+  }
+}
+
