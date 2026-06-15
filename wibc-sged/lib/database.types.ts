@@ -15,8 +15,14 @@ export interface Database {
           company_name: string
           contact_name: string
           contact_email: string
-          company_size: string
+          company_size: string | null
           industry_sector: string
+          job_title: string | null
+          is_primary_contact: boolean | null
+          alternative_contacts: any | null
+          physical_address: string | null
+          description: string | null
+          logo_url: string | null
         }
         Insert: {
           id?: string
@@ -24,8 +30,14 @@ export interface Database {
           company_name: string
           contact_name: string
           contact_email: string
-          company_size: string
+          company_size?: string | null
           industry_sector: string
+          job_title?: string | null
+          is_primary_contact?: boolean | null
+          alternative_contacts?: any | null
+          physical_address?: string | null
+          description?: string | null
+          logo_url?: string | null
         }
         Update: Partial<Database['public']['Tables']['suppliers']['Insert']>
       }
@@ -41,6 +53,23 @@ export interface Database {
           intersectional_pay_gap: number
           bias_free_recruitment: number
           sponsorship_networks: number
+          total_headcount: number | null
+          total_fte: number | null
+          workforce_female: number | null
+          workforce_male: number | null
+          workforce_non_binary: number | null
+          quartile_lower_female: number | null
+          quartile_lower_male: number | null
+          quartile_lower_non_binary: number | null
+          quartile_lower_middle_female: number | null
+          quartile_lower_middle_male: number | null
+          quartile_lower_middle_non_binary: number | null
+          quartile_upper_middle_female: number | null
+          quartile_upper_middle_male: number | null
+          quartile_upper_middle_non_binary: number | null
+          quartile_upper_female: number | null
+          quartile_upper_male: number | null
+          quartile_upper_non_binary: number | null
           total_score: number
           maturity_band: MaturityBand
           hubspot_synced: boolean
@@ -56,6 +85,23 @@ export interface Database {
           intersectional_pay_gap: number
           bias_free_recruitment: number
           sponsorship_networks: number
+          total_headcount?: number | null
+          total_fte?: number | null
+          workforce_female?: number | null
+          workforce_male?: number | null
+          workforce_non_binary?: number | null
+          quartile_lower_female?: number | null
+          quartile_lower_male?: number | null
+          quartile_lower_non_binary?: number | null
+          quartile_lower_middle_female?: number | null
+          quartile_lower_middle_male?: number | null
+          quartile_lower_middle_non_binary?: number | null
+          quartile_upper_middle_female?: number | null
+          quartile_upper_middle_male?: number | null
+          quartile_upper_middle_non_binary?: number | null
+          quartile_upper_female?: number | null
+          quartile_upper_male?: number | null
+          quartile_upper_non_binary?: number | null
           total_score: number
           maturity_band: MaturityBand
           hubspot_synced?: boolean

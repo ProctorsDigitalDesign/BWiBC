@@ -15,7 +15,7 @@ const leagueSpartan = League_Spartan({
 });
 
 export const metadata: Metadata = {
-  title: "Supplier Gender Equity Diagnostic | WiBC",
+  title: "Gender Equity Diagnostic | WiBC",
   description: "Assess your organisation against the 7 core pillars of the West of England Women in Business Charter.",
   icons: {
     icon: "/logo.png",
@@ -43,7 +43,7 @@ export default function RootLayout({
               />
               <div className="site-logo-text">
                 <p className="site-logo-title">Bristol WiBC</p>
-                <p className="site-logo-sub">Supplier Gender Equity Diagnostic</p>
+                <p className="site-logo-sub">Gender Equity Diagnostic</p>
               </div>
             </a>
             <nav>

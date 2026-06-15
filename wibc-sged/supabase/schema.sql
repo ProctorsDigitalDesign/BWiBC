@@ -18,8 +18,14 @@ CREATE TABLE IF NOT EXISTS public.suppliers (
   company_name    TEXT          NOT NULL,
   contact_name    TEXT          NOT NULL,
   contact_email   TEXT          NOT NULL UNIQUE,
-  company_size    TEXT          NOT NULL,   -- e.g. "1–10", "11–50", "51–250", "251+"
-  industry_sector TEXT          NOT NULL
+  company_size       TEXT,          -- Kept for legacy/optional logic
+  industry_sector    TEXT          NOT NULL,
+  job_title          TEXT,
+  is_primary_contact BOOLEAN       DEFAULT true,
+  alternative_contacts JSONB       DEFAULT '[]'::jsonb,
+  physical_address   TEXT,
+  description        TEXT,
+  logo_url           TEXT
 );
 
 -- Index for fast email lookups (upsert on conflict)
@@ -40,6 +46,27 @@ CREATE TABLE IF NOT EXISTS public.sged_assessments (
   intersectional_pay_gap    SMALLINT      NOT NULL CHECK (intersectional_pay_gap    BETWEEN 0 AND 5),
   bias_free_recruitment     SMALLINT      NOT NULL CHECK (bias_free_recruitment     BETWEEN 0 AND 5),
   sponsorship_networks      SMALLINT      NOT NULL CHECK (sponsorship_networks      BETWEEN 0 AND 5),
+
+  -- Demographic & Scale Metrics
+  total_headcount                   INTEGER,
+  total_fte                         NUMERIC,
+  workforce_female                  NUMERIC,
+  workforce_male                    NUMERIC,
+  workforce_non_binary              NUMERIC,
+  
+  -- Pay Quartiles
+  quartile_lower_female             NUMERIC,
+  quartile_lower_male               NUMERIC,
+  quartile_lower_non_binary         NUMERIC,
+  quartile_lower_middle_female      NUMERIC,
+  quartile_lower_middle_male        NUMERIC,
+  quartile_lower_middle_non_binary  NUMERIC,
+  quartile_upper_middle_female      NUMERIC,
+  quartile_upper_middle_male        NUMERIC,
+  quartile_upper_middle_non_binary  NUMERIC,
+  quartile_upper_female             NUMERIC,
+  quartile_upper_male               NUMERIC,
+  quartile_upper_non_binary         NUMERIC,
 
   -- Calculated fields
   total_score               SMALLINT      NOT NULL CHECK (total_score BETWEEN 0 AND 35),

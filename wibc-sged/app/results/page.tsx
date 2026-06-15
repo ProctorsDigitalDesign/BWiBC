@@ -63,7 +63,7 @@ export default function ResultsPage() {
       <div style={{ textAlign: "center", marginBottom: "var(--space-3xl)" }}>
         <h1 style={{ marginBottom: "var(--space-sm)", letterSpacing: "-0.02em" }}>Diagnostic Results</h1>
         <p style={{ fontSize: "1.125rem", color: "var(--color-text-muted)", maxWidth: "600px", margin: "0 auto" }}>
-          Thank you for completing the WiBC Supplier Gender Equity Diagnostic.
+          Thank you for completing the WiBC Gender Equity Diagnostic.
         </p>
       </div>
 

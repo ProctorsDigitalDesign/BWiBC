@@ -13,8 +13,35 @@ export interface DiagnosticSubmitPayload {
   company_name: string
   contact_name: string
   contact_email: string
-  company_size: string
+  company_size?: string
   industry_sector: string
+  
+  job_title?: string
+  is_primary_contact?: boolean
+  alternative_contacts?: any
+  physical_address?: string
+  description?: string
+  logo_url?: string
+  
+  total_headcount?: number | null
+  total_fte?: number | null
+  workforce_female?: number | null
+  workforce_male?: number | null
+  workforce_non_binary?: number | null
+  
+  quartile_lower_female?: number | null
+  quartile_lower_male?: number | null
+  quartile_lower_non_binary?: number | null
+  quartile_lower_middle_female?: number | null
+  quartile_lower_middle_male?: number | null
+  quartile_lower_middle_non_binary?: number | null
+  quartile_upper_middle_female?: number | null
+  quartile_upper_middle_male?: number | null
+  quartile_upper_middle_non_binary?: number | null
+  quartile_upper_female?: number | null
+  quartile_upper_male?: number | null
+  quartile_upper_non_binary?: number | null
+
   // Step 1B — 7-goal scores
   scores: GoalScores
 }
@@ -84,8 +111,14 @@ export async function POST(request: NextRequest) {
         company_name: payload.company_name,
         contact_name: payload.contact_name,
         contact_email: payload.contact_email,
-        company_size: payload.company_size,
+        company_size: payload.company_size || null,
         industry_sector: payload.industry_sector,
+        job_title: payload.job_title || null,
+        is_primary_contact: payload.is_primary_contact ?? true,
+        alternative_contacts: payload.alternative_contacts || [],
+        physical_address: payload.physical_address || null,
+        description: payload.description || null,
+        logo_url: payload.logo_url || null,
       },
       { onConflict: 'contact_email' }
     )
@@ -106,6 +139,23 @@ export async function POST(request: NextRequest) {
     .insert({
       supplier_id: supplier!.id,
       ...payload.scores,
+      total_headcount: payload.total_headcount || null,
+      total_fte: payload.total_fte || null,
+      workforce_female: payload.workforce_female || null,
+      workforce_male: payload.workforce_male || null,
+      workforce_non_binary: payload.workforce_non_binary || null,
+      quartile_lower_female: payload.quartile_lower_female || null,
+      quartile_lower_male: payload.quartile_lower_male || null,
+      quartile_lower_non_binary: payload.quartile_lower_non_binary || null,
+      quartile_lower_middle_female: payload.quartile_lower_middle_female || null,
+      quartile_lower_middle_male: payload.quartile_lower_middle_male || null,
+      quartile_lower_middle_non_binary: payload.quartile_lower_middle_non_binary || null,
+      quartile_upper_middle_female: payload.quartile_upper_middle_female || null,
+      quartile_upper_middle_male: payload.quartile_upper_middle_male || null,
+      quartile_upper_middle_non_binary: payload.quartile_upper_middle_non_binary || null,
+      quartile_upper_female: payload.quartile_upper_female || null,
+      quartile_upper_male: payload.quartile_upper_male || null,
+      quartile_upper_non_binary: payload.quartile_upper_non_binary || null,
       total_score: totalScore,
       maturity_band: maturityBand,
       hubspot_synced: false,

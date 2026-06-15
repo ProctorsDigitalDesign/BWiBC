@@ -25,8 +25,9 @@ export default function WaitlistPage() {
   }
 
   return (
-    <main className="container">
-      <div className="card" style={{ maxWidth: '600px', margin: '0 auto' }}>
+    <main className="page-wrapper" style={{ backgroundImage: "url('/waitlist-background.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
+      <div className="container" style={{ minHeight: "calc(100vh - 70px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
+      <div className="card" style={{ maxWidth: '600px', width: '100%', margin: '0 auto' }}>
         {isSuccess ? (
           <div className="text-center" style={{ padding: '2rem 0' }}>
             <div className="intake-icon" style={{ margin: '0 auto 1.5rem', display: 'flex' }}>
@@ -62,6 +63,7 @@ export default function WaitlistPage() {
                     id="name"
                     name="name"
                     className="form-input"
+                    style={{ border: "1px solid #7D298F" }}
                     placeholder="Enter your first name"
                     required
                   />
@@ -73,6 +75,7 @@ export default function WaitlistPage() {
                     id="surname"
                     name="surname"
                     className="form-input"
+                    style={{ border: "1px solid #7D298F" }}
                     placeholder="Enter your last name"
                     required
                   />
@@ -86,6 +89,7 @@ export default function WaitlistPage() {
                   id="company"
                   name="company"
                   className="form-input"
+                  style={{ border: "1px solid #7D298F" }}
                   placeholder="Enter your company name"
                   required
                 />
@@ -98,6 +102,7 @@ export default function WaitlistPage() {
                   id="position"
                   name="position"
                   className="form-input"
+                  style={{ border: "1px solid #7D298F" }}
                   placeholder="Enter your job title"
                   required
                 />
@@ -110,16 +115,17 @@ export default function WaitlistPage() {
                   id="email"
                   name="email"
                   className="form-input"
+                  style={{ border: "1px solid #7D298F" }}
                   placeholder="Enter your work email"
                   required
                 />
               </div>
 
-              <div className="form-nav" style={{ marginTop: '2rem' }}>
+              <div className="form-nav" style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
                 <button
                   type="submit"
                   className="btn btn-primary"
-                  style={{ width: '100%', justifyContent: 'center' }}
+                  style={{ paddingLeft: '20px', paddingRight: '20px', backgroundColor: '#7D298F', color: 'white', borderColor: '#7D298F' }}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Registering...' : 'Register Interest'}
@@ -128,6 +134,7 @@ export default function WaitlistPage() {
             </form>
           </>
         )}
+      </div>
       </div>
     </main>
   )
