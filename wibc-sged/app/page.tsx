@@ -454,7 +454,7 @@ export default function AssessmentWizard() {
   const renderOnboardingStep1 = () => (
     <div className="card onboarding-card" style={{ maxWidth: "700px", margin: "0 auto", padding: "2.5rem" }}>
       <div className="intake-header" style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <h2 style={{ fontSize: "2rem", color: "#000000", marginBottom: "0.5rem" }}>Contact Details</h2>
+        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Contact Details</h2>
         <p style={{ fontSize: "0.95rem", color: "#000000" }}>
           Please provide your contact details.
         </p>
@@ -633,7 +633,7 @@ export default function AssessmentWizard() {
   const renderOnboardingStep2 = () => (
     <div className="card onboarding-card" style={{ maxWidth: "700px", margin: "0 auto", padding: "2.5rem" }}>
       <div className="intake-header" style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <h2 style={{ fontSize: "2rem", color: "#000000", marginBottom: "0.5rem" }}>Organisation Profile</h2>
+        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Organisation Profile</h2>
         <p style={{ fontSize: "0.95rem", color: "#000000" }}>
           Please provide your organisation details.
         </p>
@@ -723,7 +723,7 @@ export default function AssessmentWizard() {
   const renderOnboardingStep3 = () => (
     <div className="card onboarding-card" style={{ maxWidth: "700px", margin: "0 auto", padding: "2.5rem" }}>
       <div className="intake-header" style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <h2 style={{ fontSize: "2rem", color: "#000000", marginBottom: "0.5rem" }}>Metrics & Logo</h2>
+        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Metrics & Logo</h2>
         <p style={{ fontSize: "0.95rem", color: "#000000" }}>
           Please provide your organisation metrics and corporate logo.
         </p>
@@ -905,7 +905,7 @@ export default function AssessmentWizard() {
   const renderPaymentStep = () => (
     <div className="card payment-card" style={{ maxWidth: "560px", margin: "0 auto", padding: "3rem" }}>
       <div className="intake-header" style={{ textAlign: "center", marginBottom: "2rem", borderBottom: "none", paddingBottom: 0 }}>
-        <h2 style={{ fontSize: "2rem", color: "#000000", marginBottom: "0.5rem" }}>Confirm Contribution</h2>
+        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Confirm Contribution</h2>
         <p style={{ fontSize: "0.95rem", color: "#000000" }}>
           A contribution of <strong>£150</strong> is required to support the charter and access the gender equity analysis tool.
         </p>
@@ -1004,7 +1004,7 @@ export default function AssessmentWizard() {
             <div className="goal-badge">
               <span>Goal {goalIndex + 1} of {GOALS.length}</span>
             </div>
-            <h2 style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>{goal.title}</h2>
+            <h2 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>{goal.title}</h2>
             <p className="goal-question" style={{ fontSize: "1.125rem", fontStyle: "normal", color: "var(--color-text)", fontWeight: 500, margin: "0.75rem 0 0" }}>
               {goal.question}
             </p>
