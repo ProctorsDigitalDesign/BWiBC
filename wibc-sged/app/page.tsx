@@ -1013,7 +1013,7 @@ export default function AssessmentWizard() {
         </div>
 
         {/* Levels List */}
-        <div className={`scale-grid ${goal.layout === "grid-3" ? "cols-3" : "cols-1"}`} role="group" aria-label={`Maturity options for ${goal.title}`}>
+        <div className="scale-grid cols-1" role="group" aria-label={`Maturity options for ${goal.title}`}>
           {goal.levels.map((level) => {
             const isSelected = currentScore === level.value;
             const labelText = level.label.includes(':') ? level.label.split(':')[1].trim() : level.label;
