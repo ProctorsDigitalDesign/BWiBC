@@ -195,7 +195,7 @@ export async function submitWaitlistFormToHubSpot(params: {
       { name: 'email', value: params.email },
       { name: 'firstname', value: params.firstname },
       { name: 'lastname', value: params.lastname },
-      { name: 'company', value: params.company },
+      { name: 'name', value: params.company, objectTypeId: '0-2' },
       { name: 'jobtitle', value: params.position }
     ]
   }
