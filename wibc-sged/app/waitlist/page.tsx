@@ -33,7 +33,7 @@ export default function WaitlistPage() {
             <div className="intake-icon" style={{ margin: '0 auto 1.5rem', display: 'flex' }}>
               <CheckCircle2 size={32} />
             </div>
-            <h2>Thank you!</h2>
+            <h2 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>Thank you!</h2>
             <p className="text-muted" style={{ marginTop: '1rem', fontSize: '1.1rem' }}>
               Your interest has been registered. We will notify you when you can enter.
             </p>
@@ -41,7 +41,7 @@ export default function WaitlistPage() {
         ) : (
           <>
             <div className="intake-header">
-              <h2>Register Your Interest</h2>
+              <h2 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>Register Your Interest</h2>
               <p className="text-muted" style={{ marginTop: '0.5rem' }}>
                 Please provide your details below to join the waitlist.
               </p>
