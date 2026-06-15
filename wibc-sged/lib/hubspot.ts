@@ -176,6 +176,8 @@ export async function submitWaitlistFormToHubSpot(params: {
   email: string
   company: string
   position: string
+  pageUri?: string
+  hutk?: string
 }): Promise<boolean> {
   const token = process.env.HUBSPOT_ACCESS_TOKEN
   const portalId = '7420122'
@@ -190,7 +192,7 @@ export async function submitWaitlistFormToHubSpot(params: {
 
   const url = `https://api.hsforms.com/submissions/v3/integration/secure/submit/${portalId}/${formId}`
 
-  const body = {
+  const body: any = {
     fields: [
       { name: 'email', value: params.email },
       { name: 'firstname', value: params.firstname },
@@ -198,6 +200,14 @@ export async function submitWaitlistFormToHubSpot(params: {
       { name: 'company', value: params.company },
       { name: 'jobtitle', value: params.position }
     ]
+  }
+
+  if (params.pageUri || params.hutk) {
+    body.context = {
+      pageUri: params.pageUri || undefined,
+      pageName: 'Waitlist',
+      hutk: params.hutk || undefined
+    }
   }
 
   const response = await fetch(url, {

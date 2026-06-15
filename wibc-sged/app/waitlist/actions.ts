@@ -1,6 +1,7 @@
 'use server'
 import { createAdminClient } from '@/lib/supabase'
 import { submitWaitlistFormToHubSpot } from '@/lib/hubspot'
+import { headers, cookies } from 'next/headers'
 
 export async function submitInterest(formData: FormData) {
   const name = formData.get('name') as string
@@ -35,6 +36,19 @@ export async function submitInterest(formData: FormData) {
       return { error: 'An unexpected error occurred. Please try again later.' }
     }
 
+    // Retrieve request-level context for HubSpot attribution
+    let pageUri = ''
+    let hutk = ''
+    try {
+      const reqHeaders = await headers()
+      pageUri = reqHeaders.get('referer') || ''
+
+      const cookieStore = await cookies()
+      hutk = cookieStore.get('hubspotutk')?.value || ''
+    } catch (e) {
+      console.warn('[HubSpot] Failed to retrieve server action request context:', e)
+    }
+
     // Sync to HubSpot (non-blocking)
     try {
       await submitWaitlistFormToHubSpot({
@@ -43,6 +57,8 @@ export async function submitInterest(formData: FormData) {
         email,
         company,
         position,
+        pageUri,
+        hutk,
       })
     } catch (hubspotError) {
       console.error('[HubSpot] Waitlist sync error (non-fatal):', hubspotError)
@@ -54,4 +70,5 @@ export async function submitInterest(formData: FormData) {
     return { error: 'A server error occurred. Please try again.' }
   }
 }
+
 
