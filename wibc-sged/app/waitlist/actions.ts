@@ -1,6 +1,6 @@
 'use server'
 import { createAdminClient } from '@/lib/supabase'
-import { upsertHubSpotWaitlistContact } from '@/lib/hubspot'
+import { submitWaitlistFormToHubSpot } from '@/lib/hubspot'
 
 export async function submitInterest(formData: FormData) {
   const name = formData.get('name') as string
@@ -37,7 +37,7 @@ export async function submitInterest(formData: FormData) {
 
     // Sync to HubSpot (non-blocking)
     try {
-      await upsertHubSpotWaitlistContact({
+      await submitWaitlistFormToHubSpot({
         firstname: name,
         lastname: surname,
         email,

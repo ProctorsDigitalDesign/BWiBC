@@ -168,45 +168,54 @@ export async function upsertHubSpotContact(params: {
 }
 
 /**
- * Creates or updates a HubSpot contact specifically for waitlist submissions.
+ * Submits a waitlist entry to a specific HubSpot form.
  */
-export async function upsertHubSpotWaitlistContact(params: {
+export async function submitWaitlistFormToHubSpot(params: {
   firstname: string
   lastname: string
   email: string
   company: string
   position: string
-}): Promise<string> {
+}): Promise<boolean> {
   const token = process.env.HUBSPOT_ACCESS_TOKEN
+  const portalId = '7420122'
+  const formId = 'd17d5f7d-058c-4955-ae91-9d34854bbba5'
 
   if (!token || token === 'your-hubspot-private-app-token') {
     console.warn(
-      '[HubSpot] HUBSPOT_ACCESS_TOKEN not configured — skipping waitlist CRM sync.'
+      '[HubSpot] HUBSPOT_ACCESS_TOKEN not configured — skipping waitlist form submission.'
     )
-    return 'skipped'
+    return false
   }
 
-  const properties = {
-    email: params.email,
-    firstname: params.firstname,
-    lastname: params.lastname,
-    company: params.company,
-    jobtitle: params.position,
+  const url = `https://api.hsforms.com/submissions/v3/integration/secure/submit/${portalId}/${formId}`
+
+  const body = {
+    fields: [
+      { name: 'email', value: params.email },
+      { name: 'firstname', value: params.firstname },
+      { name: 'lastname', value: params.lastname },
+      { name: 'company', value: params.company },
+      { name: 'jobtitle', value: params.position }
+    ]
   }
 
-  const existingId = await findContactByEmail(params.email, token)
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify(body)
+  })
 
-  if (existingId) {
-    await updateContact(existingId, properties, token)
-    console.log(`[HubSpot] Updated waitlist contact ${existingId} (${params.email})`)
-    return existingId
-  } else {
-    const newId = await createContact(
-      properties as any,
-      token
-    )
-    console.log(`[HubSpot] Created waitlist contact ${newId} (${params.email})`)
-    return newId
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`[HubSpot Form Submit] Failed: ${response.status} ${errorText}`)
+    return false
   }
+
+  console.log(`[HubSpot Form Submit] Successfully submitted waitlist form for ${params.email}`)
+  return true
 }
 
