@@ -28,7 +28,7 @@ export function calculateTotalScore(scores: GoalScores): number {
 export function getMaturityBand(totalScore: number): MaturityBand {
   if (totalScore <= 10) return 'Emerging'
   if (totalScore <= 20) return 'Developing'
-  if (totalScore <= 30) return 'Strategic'
+  if (totalScore < 30) return 'Strategic'
   return 'Innovating'
 }
 
@@ -42,9 +42,9 @@ export function getProcurementAdvice(band: MaturityBand): string {
     Developing:
       "You are making great progress in embedding inclusive practices. We invite you to join the WiBC as a 'Supporter' or 'Signatory' to access peer-learning and structured support to reach the next level.",
     Strategic:
-      "Outstanding work! Your strong alignment with gender equity values positions you as a highly attractive partner for procurement teams. Consider becoming a full WiBC Signatory to publicly showcase your leadership.",
+      "Outstanding work! Your strong alignment with gender equity values positions you as a highly attractive partner for procurement teams. Consider becoming a full WiBC Signatory to publicly showcase your commitment.",
     Innovating:
-      "Exceptional! Your organisation is a sector-leading benchmark. We invite you to partner with WiBC to co-author best practice guides, share your insights, and mentor other businesses in the region.",
+      "Exceptional! Your organisation is a true sector leader. We invite you to partner with WiBC to co-author best practice guides, share your insights, and mentor other businesses in the region.",
   }
   return advice[band]
 }
@@ -57,11 +57,36 @@ export function getBandDescription(band: MaturityBand): string {
     Emerging:
       'Your organisation meets basic legal requirements but lacks a proactive gender equity strategy.',
     Developing:
-      "Your organisation is actively embedding inclusive practices and developing an intersectional focus.",
+      "Your organisation is actively working to embed inclusive practices and develop an intersectional focus.",
     Strategic:
-      'Your organisation is a leader in gender equity with strongly embedded practices and policies.',
+      'Your organisation has strongly embedded gender equity practices and policies across the business.',
     Innovating:
-      'Your organisation is setting sector-wide standards for equity, transparency, and inclusive culture.',
+      'Your organisation is a true sector leader, setting new standards for equity, transparency, and inclusive culture.',
   }
   return descriptions[band]
 }
+
+/**
+ * Maps a 1–5 goal score to the corresponding maturity level label.
+ */
+export function getGoalMaturityLabel(score: number): string {
+  const labels: Record<number, string> = {
+    0: 'Not Assessed',
+    1: 'Foundational',
+    2: 'Developing',
+    3: 'Embedding',
+    4: 'Strategic',
+    5: 'Innovating',
+  }
+  return labels[score] ?? 'Not Assessed'
+}
+
+/**
+ * Returns a priority level ('high' | 'medium' | 'strong') based on score.
+ */
+export function getGoalPriorityLevel(score: number): 'high' | 'medium' | 'strong' {
+  if (score <= 2) return 'high'
+  if (score === 3) return 'medium'
+  return 'strong'
+}
+

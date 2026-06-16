@@ -6,98 +6,7 @@ import {
   CheckCircle2, Loader2,
   Building2, Mail, User, Briefcase, Users, AlertCircle, Info, Trash2, Plus, Upload
 } from "lucide-react";
-
-const GOALS = [
-  {
-    id: "flexible_working",
-    title: "Flexible & Part-Time Working",
-    question: "Does your organisation proactively offer and role-model flexible working at all levels?",
-    layout: "grid-3",
-    levels: [
-      { value: 1, label: "Foundational", text: "A ‘Ways of Working’ policy exists including flexible working and hybrid working standards. Formal Flexible Working Requests are handled on a case-by-case basis as per statutory law." },
-      { value: 2, label: "Developing", text: "Flexibility and available options are proactively mentioned in all job adverts. Senior leaders work hybrid or part-time and are visible role models." },
-      { value: 3, label: "Embedding", text: "A ‘Flexible by Default’ culture is adopted; the business must prove a role cannot be flexible rather than the employee proving it can. Disability-related flexibility is an accepted ‘Reasonable Adjustment’. Support for menopause and menstrual health is formalised." },
-      { value: 4, label: "Strategic", text: "Managers are trained in output-based performance (results over ‘presenteeism’). High-spec hardware and ergonomic tools are provided to all remote/hybrid staff. Equitable employee comms, engagement and networking opportunities are guaranteed regardless of location or hours worked." },
-      { value: 5, label: "Innovating", text: "A market-leading approach to ways of working (e.g. 4-day week / 9 day fortnight) is in place. A ‘Right to Disconnect’ is contractually enforced, protecting employees from ‘always-on’ culture and burnout. Intersectional uptake data is reviewed monthly by the Board." }
-    ]
-  },
-  {
-    id: "senior_representation",
-    title: "Representative Senior Leadership",
-    question: "Do women, including those from marginalised backgrounds, have equal representation in your senior leadership and Board?",
-    layout: "grid-3",
-    levels: [
-      { value: 1, label: "Foundational", text: "Gender representation is tracked at a high level. A basic commitment to diversity is included in the annual report." },
-      { value: 2, label: "Developing", text: "The organisation sets internal gender targets. ‘Stay and develop interviews’ are conducted with women in middle management to understand retention and support progression." },
-      { value: 3, label: "Embedding", text: "Intersectional data is collected. Specific targets are set for women of all backgrounds (Race/Disability/Class/Sexuality) to be represented at all levels. Role profiles are audited to remove class-coded requirements (e.g. university bias)." },
-      { value: 4, label: "Strategic", text: "A formal ‘Sponsorship’ programme exists where C-suite leaders use their influence to pull marginalised women into high-level rooms. Promotion and interview panels are always diverse, using external advisors where necessary." },
-      { value: 5, label: "Innovating", text: "Executive bonuses are directly linked to intersectional diversity outcomes. Radical transparency: External data dashboards measure the ‘career velocity’ and progression of different demographic groups to drive investment." }
-    ]
-  },
-  {
-    id: "executive_accountability",
-    title: "Executive Accountability & Safe Culture",
-    question: "Is there clear executive accountability for gender equity and a proven ‘Preventative Duty’ regarding workplace safety?",
-    levels: [
-      { value: 1, label: "Foundational", text: "An executive is named as the EDI lead. A standard anti-harassment policy is in place." },
-      { value: 2, label: "Developing", text: "Mandatory active anti-racism and anti-misogyny training is introduced for managers. Domestic abuse support is included in HR handbooks." },
-      { value: 3, label: "Embedding", text: "Psychological safety is measured via anonymous surveys. ERGs (Employee Resource Groups) are in place and are consulted on policy co-design, including the formal establishment of a dedicated, funded 'Menopause Circle' or peer support network as an active subgroup. A zero-tolerance approach to microaggressions and the ‘Preventative Duty’ regarding harassment is role-modelled." },
-      { value: 4, label: "Strategic", text: "Comprehensive women’s health retention plans (Menopause, Fertility, Pregnancy Loss) are active and include specialist coaching, supported by an active Menopause Workplace Risk Assessment Checklist integrated into Health & Safety workflows. Include a specific, mandatory annual module for line managers focusing on navigating conversations, understanding accommodations, and removing performance biases associated with menopause. The Executive Lead presents EDI progress to the Board quarterly with financial-grade rigour." },
-      { value: 5, label: "Innovating", text: "ERGs are fully funded and have at least 10% formal ‘work time’ allocated for leaders. The organisation provides independent, third-party reporting lines for harassment and offers paid leave for domestic abuse survivors." }
-    ]
-  },
-  {
-    id: "frontline_progression",
-    title: "Progression from Lower-Paid Roles",
-    question: "Do you have clear pathways to management for women in frontline, operational, or lower-paid roles?",
-    levels: [
-      { value: 1, label: "Foundational", text: "Internal vacancies are posted on staff boards. All staff have development plans in place and regular 121’s, additional training is available upon request." },
-      { value: 2, label: "Developing", text: "Visual career maps show pathways from entry-level to management. Training is held during core hours and outside school holidays to support those with caring duties." },
-      { value: 3, label: "Embedding", text: "Degree requirements are removed from internal roles to support social mobility. The organisation budgets for ‘hidden costs’ (childcare/travel) to allow lower-paid staff and new employees to attend training and induction." },
-      { value: 4, label: "Strategic", text: "Digital literacy pathways are funded for frontline staff. Junior Sponsorship Circles’ pair operational staff with senior leaders for advocacy, backed by a structural policy to automatically consider all eligible frontline staff for promotion to eliminate self-nomination barriers. Junior roles are redesigned to attract men into entry roles, balancing occupational segregation. Long term impactful programmes of development are in place for internal women to equitably progress." },
-      { value: 5, label: "Innovating", text: "Social mobility is benchmarked using parental occupation data. 1-to-1 coaching is provided to all women, including ‘cultural capital’ coaching for women from working-class backgrounds to support their progression into leadership." }
-    ]
-  },
-  {
-    id: "intersectional_pay_gap",
-    title: "Closing the Intersectional Pay Gap",
-    question: "Are you transparent about pay and committed to closing intersectional pay and pension gaps?",
-    layout: "grid-3",
-    levels: [
-      { value: 1, label: "Foundational", text: "Statutory Gender Pay Gap reporting is completed. Basic equal pay audits are conducted." },
-      { value: 2, label: "Developing", text: "Salary bands are published internally. The organisation is an accredited Real Living Wage employer for all staff and contractors." },
-      { value: 3, label: "Embedding", text: "Voluntary reporting on Ethnicity and Disability pay gaps. All job adverts must state specific flexible working options, available leave policies (e.g., enhanced parental/caring leave), and a clear salary range (no ‘competitive’ labels)." },
-      { value: 4, label: "Strategic", text: "Fixed starting salaries are implemented to remove the ‘negotiation penalty’. Full employer pension contributions are maintained during the entire duration of all forms of parental leave." },
-      { value: 5, label: "Innovating", text: "The organisation provides financial management training and support and publishes a time-bound ‘Wealth Equity’ plan. This addresses the ‘motherhood penalty’ and the pension gap, assessing the total financial health and long-term security of female employees." }
-    ]
-  },
-  {
-    id: "bias_free_recruitment",
-    title: "Bias-Free Recruitment & Appraisals",
-    question: "Are your recruitment and performance systems designed to be neuro-inclusive and free from systemic bias?",
-    layout: "grid-3",
-    levels: [
-      { value: 1, label: "Foundational", text: "Hiring managers take annual ‘Unconscious Bias’ training modules." },
-      { value: 2, label: "Developing", text: "Job ads are audited for gendered language. Blind-screening (removing names/universities) is used for all initial CV screening." },
-      { value: 3, label: "Embedding", text: "Interview questions and panel details are shared 48 hours in advance as a default (Neuro-inclusion). ‘Cultural fit’ scores are replaced with objective, evidence-based rubrics with transparency and decision record keeping." },
-      { value: 4, label: "Strategic", text: "Full-funnel data is audited (from application to offer) to identify where marginalised groups ‘leak’ from the process. Recruitment imagery proactively targets intersectional groups and women over 45." },
-      { value: 5, label: "Innovating", text: "AI and peer-audits of performance appraisal language are conducted to ensure objective feedback. All HR systems are fully trans-inclusive and neuro-inclusive by design." }
-    ]
-  },
-  {
-    id: "sponsorship_networks",
-    title: "Mentoring, Sponsorship & Networks",
-    question: "Do you provide women with the social capital and networking opportunities needed to thrive?",
-    layout: "grid-3",
-    levels: [
-      { value: 1, label: "Foundational", text: "A women’s network exists and holds occasional social or networking events during working hours." },
-      { value: 2, label: "Developing", text: "A formal mentoring programme matches junior staff with senior colleagues. Events are held during core working hours and equitably consider the participation of hybrid and part time staff." },
-      { value: 3, label: "Embedding", text: "Women’s Network leadership is intersectional (includes Global Majority and Disabled voices - including involvement of external experts if required to bridge any gaps). A dedicated budget is allocated for external coaching for underrepresented women." },
-      { value: 4, label: "Strategic", text: "Intentional Reverse Mentoring is mandatory for senior leadership. The organisation uses its supply chain influence, requiring contractors to meet WiBC standards to win tenders." },
-      { value: 5, label: "Innovating", text: "The organisation acts as a ‘Sector Leader’, publicly sharing EDI failures and learnings. It has established hiring pipelines with grassroots groups and local experts (e.g. disabled women or care leavers) to support the most marginalised women." }
-    ]
-  }
-];
+import { GOALS } from "@/lib/goals";
 
 // Steps: 
 // 0: Contact Details
@@ -426,6 +335,24 @@ export default function AssessmentWizard() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Submission failed");
       sessionStorage.setItem("sged_result", JSON.stringify(data));
+      // Save org profile so results page can personalise the report
+      sessionStorage.setItem("sged_profile", JSON.stringify({
+        company_name: onboarding.companyName,
+        contact_name: `${onboarding.firstName} ${onboarding.lastName}`,
+        industry_sector: onboarding.industrySector,
+        logo_preview: onboarding.logoPreview,
+        workforce_female: onboarding.workforceFemale,
+        workforce_male: onboarding.workforceMale,
+        workforce_non_binary: onboarding.workforceNonBinary,
+        quartile_lower_female: onboarding.quartileLowerFemale,
+        quartile_lower_male: onboarding.quartileLowerMale,
+        quartile_lower_middle_female: onboarding.quartileLowerMiddleFemale,
+        quartile_lower_middle_male: onboarding.quartileLowerMiddleMale,
+        quartile_upper_middle_female: onboarding.quartileUpperMiddleFemale,
+        quartile_upper_middle_male: onboarding.quartileUpperMiddleMale,
+        quartile_upper_female: onboarding.quartileUpperFemale,
+        quartile_upper_male: onboarding.quartileUpperMale,
+      }));
       router.push("/results");
     } catch (err: any) {
       setSubmitError(err.message);
@@ -968,7 +895,7 @@ export default function AssessmentWizard() {
       </div>
       <h1 style={{ marginBottom: "1rem", fontSize: "2.5rem" }}>Gender Equity Diagnostic</h1>
       <p style={{ fontSize: "16px", color: "var(--color-text)", maxWidth: "718px", margin: "0 auto 2rem", lineHeight: 1.6 }}>
-        Welcome to the West of England Women in Business Charter&apos;s Gender Equity Diagnostic. This tool helps you assess your organisation&apos;s maturity across 7 key goals related to gender equity in the workplace.
+        Welcome to the Bristol Women in Business Charter&apos;s Gender Equity Diagnostic. This tool helps you assess your organisation&apos;s maturity across 7 key goals related to gender equity in the workplace.
       </p>
       
       <div style={{ background: "var(--color-surface)", padding: "2rem", borderRadius: "var(--radius-md)", textAlign: "left", maxWidth: "718px", margin: "0 auto 2.5rem", border: "1px solid #FFBB2B" }}>
@@ -1119,6 +1046,26 @@ export default function AssessmentWizard() {
           {step === 4 && renderIntroStep()}
           {step >= 5 && step < TOTAL_STEPS && renderAssessmentStep()}
         </div>
+      </div>
+      
+      {/* Global Footer */}
+      <div style={{ textAlign: "center", padding: "1.5rem 1rem 2rem", color: "var(--color-text)", fontFamily: "Aptos, system-ui, sans-serif", fontSize: "0.85rem" }}>
+        Powered by{" "}
+        <a
+          href="https://www.proctorsgroup.com/"
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            color: "#000",
+            textDecoration: "none",
+            fontWeight: 600,
+            transition: "opacity 0.2s"
+          }}
+          onMouseEnter={e => e.currentTarget.style.opacity = "0.7"}
+          onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+        >
+          Proctor + Stevenson
+        </a>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const dmSerifText = DM_Serif_Text({
 
 export const metadata: Metadata = {
   title: "Gender Equity Diagnostic | WiBC",
-  description: "Assess your organisation against the 7 core pillars of the West of England Women in Business Charter.",
+  description: "Assess your organisation against the 7 core pillars of the Bristol Women in Business Charter.",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
