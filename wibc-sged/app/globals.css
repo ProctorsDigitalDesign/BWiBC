@@ -623,6 +623,9 @@ a:hover { color: var(--color-primary-light); }
   .container {
     padding: var(--space-lg) var(--space-md);
   }
+  .admin-kpi-cards {
+    grid-template-columns: 1fr !important;
+  }
   .form-nav {
     flex-direction: column;
     gap: var(--space-md);
@@ -871,4 +874,10 @@ a:hover { color: var(--color-primary-light); }
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
+}
+
+/* ─── Recharts Overrides ─────────────────────────────────────────────────── */
+/* Remove default browser focus outlines (blue rings) from recharts elements when clicked */
+.recharts-wrapper *:focus {
+  outline: none !important;
 }
