@@ -995,6 +995,8 @@ export default function AssessmentWizard() {
     const goal = GOALS[goalIndex];
     const currentScore = scores[goal.id];
     const isLastGoal = goalIndex === GOALS.length - 1;
+    const iconSources = ["/step1-icon.svg", "/step2-icon.png", "/step3-icon.png"];
+    const currentIcon = iconSources[goalIndex % iconSources.length];
 
     return (
       <div className="card">
@@ -1009,7 +1011,7 @@ export default function AssessmentWizard() {
               {goal.question}
             </p>
           </div>
-          <img src="/step-image.png" alt="" style={{ width: "140px", height: "auto", flexShrink: 0 }} />
+          <img src={currentIcon} alt="" style={{ width: "140px", height: "auto", flexShrink: 0 }} />
         </div>
 
         {/* Levels List */}
