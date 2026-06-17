@@ -402,14 +402,19 @@ export default function AdminPage() {
               <div style={{ flex: 1, minHeight: "220px" }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <RadarChart cx="50%" cy="50%" outerRadius="60%" data={radarData}>
+                    <defs>
+                      <linearGradient id="adminScoreGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="var(--color-primary)" stopOpacity={0.6} />
+                        <stop offset="100%" stopColor="var(--color-primary-light)" stopOpacity={0.1} />
+                      </linearGradient>
+                    </defs>
                     <PolarGrid stroke="var(--color-border)" />
                     <PolarAngleAxis dataKey="subject" tick={{ fill: "var(--color-text-muted)", fontSize: 10 }} />
                     <Radar 
                       name="Network" 
                       dataKey="A" 
                       stroke="var(--color-primary)" 
-                      fill="var(--color-primary)" 
-                      fillOpacity={0.4} 
+                      fill="url(#adminScoreGradient)" 
                       animationDuration={1500}
                       animationEasing="ease-out"
                     />
@@ -542,8 +547,8 @@ export default function AdminPage() {
                             </div>
                             <div>
                               <div style={{ fontWeight: 600, color: "#000", fontSize: "0.95rem", marginBottom: "0.15rem" }}>{supplier.company_name}</div>
-                              <div style={{ fontSize: "0.8rem", color: "var(--color-text-muted)" }}>
-                                {supplier.contact_name} · <span style={{ color: "var(--color-primary)" }}>{supplier.contact_email}</span>
+                              <div style={{ fontSize: "0.8rem", color: "var(--color-text)" }}>
+                                {supplier.contact_name} · <span>{supplier.contact_email}</span>
                               </div>
                             </div>
                           </div>
@@ -693,7 +698,7 @@ export default function AdminPage() {
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
                       <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid var(--color-border)" }}><Mail size={14} color="var(--color-text)" /></div>
-                      <a href={`mailto:${selectedSupplier.contact_email}`} style={{ color: "var(--color-primary)", textDecoration: "none", fontWeight: 500 }}>{selectedSupplier.contact_email}</a>
+                      <a href={`mailto:${selectedSupplier.contact_email}`} style={{ color: "var(--color-text)", textDecoration: "none", fontWeight: 500 }}>{selectedSupplier.contact_email}</a>
                     </div>
                   </div>
                 </div>

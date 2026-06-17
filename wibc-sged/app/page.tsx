@@ -381,7 +381,7 @@ export default function AssessmentWizard() {
   const renderOnboardingStep1 = () => (
     <div className="card onboarding-card" style={{ maxWidth: "700px", margin: "0 auto", padding: "2.5rem" }}>
       <div className="intake-header" style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Contact Details</h2>
+        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Contact details</h2>
         <p style={{ fontSize: "0.95rem", color: "#000000" }}>
           Please provide your contact details.
         </p>
@@ -488,7 +488,7 @@ export default function AssessmentWizard() {
         <div style={{ marginTop: "2rem" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingBottom: "1rem", borderBottom: "1px solid var(--color-border-light)", marginBottom: onboarding.alternativeContacts.length > 0 ? "1.5rem" : "0" }}>
             <div>
-              <h3 style={{ margin: 0, fontSize: "1.15rem", color: "#000000" }}>Alternative/Additional Contacts</h3>
+              <h3 style={{ margin: 0, fontSize: "1.15rem", color: "#000000" }}>Alternative/additional contacts</h3>
               <p style={{ margin: "0.25rem 0 0", fontSize: "0.85rem", color: "var(--color-text-muted)" }}>Optional additional team members</p>
             </div>
             <button
@@ -560,7 +560,7 @@ export default function AssessmentWizard() {
   const renderOnboardingStep2 = () => (
     <div className="card onboarding-card" style={{ maxWidth: "700px", margin: "0 auto", padding: "2.5rem" }}>
       <div className="intake-header" style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Organisation Profile</h2>
+        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Organisation profile</h2>
         <p style={{ fontSize: "0.95rem", color: "#000000" }}>
           Please provide your organisation details.
         </p>
@@ -650,7 +650,7 @@ export default function AssessmentWizard() {
   const renderOnboardingStep3 = () => (
     <div className="card onboarding-card" style={{ maxWidth: "700px", margin: "0 auto", padding: "2.5rem" }}>
       <div className="intake-header" style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Metrics & Logo</h2>
+        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Metrics & logo</h2>
         <p style={{ fontSize: "0.95rem", color: "#000000" }}>
           Please provide your organisation metrics and corporate logo.
         </p>
@@ -832,7 +832,7 @@ export default function AssessmentWizard() {
   const renderPaymentStep = () => (
     <div className="card payment-card" style={{ maxWidth: "560px", margin: "0 auto", padding: "3rem" }}>
       <div className="intake-header" style={{ textAlign: "center", marginBottom: "2rem", borderBottom: "none", paddingBottom: 0 }}>
-        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Confirm Contribution</h2>
+        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Confirm contribution</h2>
         <p style={{ fontSize: "0.95rem", color: "#000000" }}>
           A contribution of <strong>£150</strong> is required to support the charter and access the gender equity analysis tool.
         </p>
@@ -893,7 +893,7 @@ export default function AssessmentWizard() {
       <div style={{ marginBottom: "1.5rem", display: "flex", justifyContent: "center" }}>
         <img src="/step1-icon.svg" alt="Building icon" style={{ width: "72px", height: "72px", borderRadius: "50%" }} />
       </div>
-      <h1 style={{ marginBottom: "1rem", fontSize: "2.5rem" }}>Gender Equity Diagnostic</h1>
+      <h1 style={{ marginBottom: "1rem", fontSize: "2.5rem" }}>Gender equity diagnostic</h1>
       <p style={{ fontSize: "16px", color: "var(--color-text)", maxWidth: "718px", margin: "0 auto 2rem", lineHeight: 1.6 }}>
         Welcome to the Bristol Women in Business Charter&apos;s Gender Equity Diagnostic. This tool helps you assess your organisation&apos;s maturity across 7 key goals related to gender equity in the workplace.
       </p>
@@ -938,7 +938,21 @@ export default function AssessmentWizard() {
               {goal.question}
             </p>
           </div>
-          <img src={currentIcon} alt="" style={{ width: "140px", height: "auto", flexShrink: 0 }} />
+          <img
+            src={currentIcon}
+            alt=""
+            style={{
+              width: "168px",
+              height: "auto",
+              flexShrink: 0,
+              transform: currentIcon.includes("step-image")
+                ? "scale(1.05)"
+                : currentIcon.includes("step2-icon")
+                ? "scale(0.88)"
+                : "scale(1.25)",
+              transformOrigin: "center"
+            }}
+          />
         </div>
 
         {/* Levels List */}

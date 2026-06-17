@@ -16,7 +16,7 @@ export interface Goal {
 export const GOALS: Goal[] = [
   {
     id: "flexible_working",
-    title: "Flexible & Part-Time Working",
+    title: "Flexible & part-time working",
     question: "Does your organisation proactively offer and role-model flexible working at all levels?",
     layout: "grid-3",
     levels: [
@@ -29,7 +29,7 @@ export const GOALS: Goal[] = [
   },
   {
     id: "senior_representation",
-    title: "Representative Senior Leadership",
+    title: "Representative senior leadership",
     question: "Do women, including those from marginalised backgrounds, have equal representation in your senior leadership and Board?",
     layout: "grid-3",
     levels: [
@@ -42,7 +42,7 @@ export const GOALS: Goal[] = [
   },
   {
     id: "executive_accountability",
-    title: "Executive Accountability & Safe Culture",
+    title: "Executive accountability & safe culture",
     question: "Is there clear executive accountability for gender equity and a proven 'Preventative Duty' regarding workplace safety?",
     levels: [
       { value: 1, label: "Foundational", text: "An executive is named as the EDI lead. A standard anti-harassment policy is in place.", guide: "• Name an executive as the EDI lead.\n• Establish a standard anti-harassment policy." },
@@ -54,7 +54,7 @@ export const GOALS: Goal[] = [
   },
   {
     id: "frontline_progression",
-    title: "Progression from Lower-Paid Roles",
+    title: "Progression from lower-paid roles",
     question: "Do you have clear pathways to management for women in frontline, operational, or lower-paid roles?",
     levels: [
       { value: 1, label: "Foundational", text: "Internal vacancies are posted on staff boards. All staff have development plans in place and regular 121's, additional training is available upon request.", guide: "• Post internal vacancies on staff boards.\n• Ensure all staff have development plans and regular 1-to-1s." },
@@ -66,7 +66,7 @@ export const GOALS: Goal[] = [
   },
   {
     id: "intersectional_pay_gap",
-    title: "Closing the Intersectional Pay Gap",
+    title: "Closing the intersectional pay gap",
     question: "Are you transparent about pay and committed to closing intersectional pay and pension gaps?",
     layout: "grid-3",
     levels: [
@@ -79,7 +79,7 @@ export const GOALS: Goal[] = [
   },
   {
     id: "bias_free_recruitment",
-    title: "Bias-Free Recruitment & Appraisals",
+    title: "Bias-free recruitment & appraisals",
     question: "Are your recruitment and performance systems designed to be neuro-inclusive and free from systemic bias?",
     layout: "grid-3",
     levels: [
@@ -92,7 +92,7 @@ export const GOALS: Goal[] = [
   },
   {
     id: "sponsorship_networks",
-    title: "Mentoring, Sponsorship & Networks",
+    title: "Mentoring, sponsorship & networks",
     question: "Do you provide women with the social capital and networking opportunities needed to thrive?",
     layout: "grid-3",
     levels: [

@@ -41,7 +41,7 @@ export default function WaitlistPage() {
         ) : (
           <>
             <div className="intake-header">
-              <h2 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>Register Your Interest</h2>
+              <h2 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>Register your interest</h2>
               <p className="text-muted" style={{ marginTop: '0.5rem' }}>
                 Please provide your details below to join the waitlist.
               </p>

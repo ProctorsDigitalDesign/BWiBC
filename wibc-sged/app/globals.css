@@ -3,10 +3,10 @@
 /* ─── Design Tokens ──────────────────────────────────────────────────────── */
 :root {
   /* WiBC Brand Colours */
-  --color-primary:       #612d8f; /* Community Purple — main colour */
-  --color-primary-dark:  #4a2069;
-  --color-primary-light: #8b52b8;
-  --color-primary-alpha: rgba(97, 45, 143, 0.08);
+  --color-primary:       #f6911d; /* Brand Orange — main colour */
+  --color-primary-dark:  #d97a12;
+  --color-primary-light: #f8b056;
+  --color-primary-alpha: rgba(246, 145, 29, 0.12);
   
   --color-action:        #ec1e23; /* Red — action */
   --color-action-dark:   #c91519;

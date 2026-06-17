@@ -131,13 +131,13 @@ function IconBox({ Icon, size = 20 }: { Icon: React.ElementType; size?: number }
     <div style={{
       width: "40px", height: "40px",
       borderRadius: R.md,
-      background: "linear-gradient(135deg, rgba(255, 187, 43, 0.25) 0%, rgba(255, 187, 43, 0.1) 100%)",
-      border: "1px solid rgba(255, 187, 43, 0.3)",
+      background: "linear-gradient(135deg, rgba(246, 145, 29, 0.15) 0%, rgba(246, 145, 29, 0.05) 100%)",
+      border: "1px solid rgba(246, 145, 29, 0.2)",
       boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5)",
       display: "flex", alignItems: "center", justifyContent: "center",
       flexShrink: 0,
     }}>
-      <Icon size={size} weight="duotone" color="#b07a00" />
+      <Icon size={size} weight="duotone" color="var(--color-primary)" />
     </div>
   );
 }
@@ -293,8 +293,15 @@ export default function ResultsPage() {
               {profile.logo_preview ? (
                 <img src={profile.logo_preview} alt="Logo" style={{ height: "52px", width: "auto", objectFit: "contain", borderRadius: R.sm }} />
               ) : (
-                <div style={{ width: "52px", height: "52px", borderRadius: R.md, background: "#FFEDB8", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Buildings size={26} weight="duotone" color="#b07a00" />
+                <div style={{
+                  width: "52px", height: "52px", borderRadius: R.md,
+                  background: "linear-gradient(135deg, rgba(246, 145, 29, 0.15) 0%, rgba(246, 145, 29, 0.05) 100%)",
+                  border: "1px solid rgba(246, 145, 29, 0.2)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  flexShrink: 0
+                }}>
+                  <Buildings size={26} weight="duotone" color="var(--color-primary)" />
                 </div>
               )}
               <div>
@@ -363,7 +370,7 @@ export default function ResultsPage() {
             {/* Strongest */}
             <div style={{ padding: "1.25rem 1.5rem", borderRight: isTablet ? "none" : "1px solid var(--color-border)", borderBottom: isTablet ? "1px solid var(--color-border)" : "none", display: "flex", flexDirection: "column", justifyContent: "center" }}>
               <p style={{ fontFamily: bodyFont, fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--color-text-muted)", margin: "0 0 0.5rem", display: "flex", alignItems: "center", gap: "0.3rem" }}>
-                <CheckCircle size={12} weight="fill" color="#166534" /> Your Greatest Strength
+                <CheckCircle size={12} weight="fill" color="#166534" /> Your greatest strength
               </p>
               <p style={{ fontFamily: headFont, fontWeight: 400, fontSize: "1.05rem", color: "#000", lineHeight: 1.3, minHeight: "2.73rem", margin: "0 0 0.75rem" }}>{strongest.goal.title}</p>
               <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
@@ -375,7 +382,7 @@ export default function ResultsPage() {
             {/* Priority focus */}
             <div style={{ padding: "1.25rem 1.5rem", borderRight: isMobile ? "none" : "1px solid var(--color-border)", borderBottom: isMobile ? "1px solid var(--color-border)" : "none", display: "flex", flexDirection: "column", justifyContent: "center" }}>
               <p style={{ fontFamily: bodyFont, fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--color-text-muted)", margin: "0 0 0.5rem", display: "flex", alignItems: "center", gap: "0.3rem" }}>
-                <Warning size={12} weight="fill" color="#b91c1c" /> Biggest Opportunity to Improve
+                <Warning size={12} weight="fill" color="#b91c1c" /> Biggest opportunity to improve
               </p>
               <p style={{ fontFamily: headFont, fontWeight: 400, fontSize: "1.05rem", color: "#000", lineHeight: 1.3, minHeight: "2.73rem", margin: "0 0 0.75rem" }}>{weakest.goal.title}</p>
               <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
@@ -386,7 +393,7 @@ export default function ResultsPage() {
 
             {/* Band description */}
             <div style={{ padding: "1.25rem 1.5rem", gridColumn: "auto", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-              <p style={{ fontFamily: bodyFont, fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--color-text-muted)", margin: "0 0 0.5rem" }}>What Your Score Tells Us</p>
+              <p style={{ fontFamily: bodyFont, fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--color-text-muted)", margin: "0 0 0.5rem" }}>What your score tells us</p>
               <p style={{ fontFamily: bodyFont, fontSize: "0.875rem", color: "var(--color-text)", lineHeight: 1.7, margin: 0 }}>
                 {getBandDescription(maturity_band as any)}
               </p>
@@ -401,13 +408,13 @@ export default function ResultsPage() {
         {/* ── Radar + Quick Scores ───────────────────────────────────── */}
         <div style={{ display: "grid", gridTemplateColumns: narrow ? "1fr" : "1fr 1fr", gap: "1.25rem", marginBottom: "1.25rem" }}>
           <div style={card}>
-            <SectionHead Icon={ChartLineUp} title="Health Check Radar" sub="A visual snapshot of your strengths and areas for growth" />
+            <SectionHead Icon={ChartLineUp} title="Health check radar" sub="A visual snapshot of your strengths and areas for growth" />
             <ResponsiveContainer width="100%" height={narrow ? 260 : 340}>
               <RadarChart cx="50%" cy="50%" outerRadius={narrow ? "65%" : "75%"} data={radarData}>
                 <defs>
                   <linearGradient id="scoreGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#f6911d" stopOpacity={0.6} />
-                    <stop offset="100%" stopColor="#FFBB2B" stopOpacity={0.1} />
+                    <stop offset="0%" stopColor="var(--color-primary)" stopOpacity={0.6} />
+                    <stop offset="100%" stopColor="var(--color-primary-light)" stopOpacity={0.1} />
                   </linearGradient>
                 </defs>
                 <PolarGrid stroke="rgba(0,0,0,0.06)" />
@@ -426,17 +433,17 @@ export default function ResultsPage() {
                 <Radar 
                   name="Score" 
                   dataKey="score" 
-                  stroke="#f6911d" 
+                  stroke="var(--color-primary)" 
                   strokeWidth={2.5} 
                   fill="url(#scoreGradient)"
-                  activeDot={{ r: 5, fill: "#fff", stroke: "#f6911d", strokeWidth: 2 }}
+                  activeDot={{ r: 5, fill: "#fff", stroke: "var(--color-primary)", strokeWidth: 2 }}
                 />
               </RadarChart>
             </ResponsiveContainer>
           </div>
 
           <div style={card}>
-            <SectionHead Icon={Star} title="Quick Breakdown" sub="See how your business tracks against each specific goal" />
+            <SectionHead Icon={Star} title="Quick breakdown" sub="See how your business tracks against each specific goal" />
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
               {GOALS.map((g, idx) => {
                 const currentIcon = ["/step-image.png", "/step2-icon.png", "/step3-icon.png"][idx % 3];
@@ -445,8 +452,22 @@ export default function ResultsPage() {
                 const pc = PRIORITY_CONFIG[pl];
                 return (
                   <div key={g.id} style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                    <div style={{ width: "32px", height: "32px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <img src={currentIcon} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                    <div style={{ width: "38px", height: "38px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <img
+                        src={currentIcon}
+                        alt=""
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                          transform: currentIcon.includes("step-image")
+                            ? "scale(1.05)"
+                            : currentIcon.includes("step2-icon")
+                            ? "scale(0.88)"
+                            : "scale(1.25)",
+                          transformOrigin: "center"
+                        }}
+                      />
                     </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <p style={{ fontFamily: bodyFont, fontWeight: 600, fontSize: "0.825rem", color: "#000", margin: "0 0 0.325rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{g.title}</p>
@@ -462,7 +483,7 @@ export default function ResultsPage() {
 
         {/* ── Per-goal breakdown ──────────────────────────────────────── */}
         <div style={{ ...card, marginBottom: "1.25rem" }}>
-          <SectionHead Icon={Buildings} title="Your Roadmap to Improvement" sub="Clear, practical steps to advance each area of your business" />
+          <SectionHead Icon={Buildings} title="Your roadmap to improvement" sub="Clear, practical steps to advance each area of your business" />
 
           <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
             {GOALS.map((goal, idx) => {
@@ -493,11 +514,25 @@ export default function ResultsPage() {
                     onMouseEnter={e => { if (!isOpenGoal) e.currentTarget.style.background = "rgba(0,0,0,0.02)"; }}
                     onMouseLeave={e => { if (!isOpenGoal) e.currentTarget.style.background = "#fff"; }}
                   >
-                    <div style={{ width: "42px", height: "42px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <img src={currentIcon} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                    <div style={{ width: "50px", height: "50px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <img
+                        src={currentIcon}
+                        alt=""
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                          transform: currentIcon.includes("step-image")
+                            ? "scale(1.05)"
+                            : currentIcon.includes("step2-icon")
+                            ? "scale(0.88)"
+                            : "scale(1.25)",
+                          transformOrigin: "center"
+                        }}
+                      />
                     </div>
                     <div style={{ flex: 1, minWidth: "150px" }}>
-                      <p style={{ fontFamily: bodyFont, fontSize: "0.7rem", fontWeight: 700, color: "var(--color-text-muted)", textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 0.25rem" }}>Goal {idx + 1}</p>
+                      <div className="goal-badge" style={{ marginBottom: "0.35rem", padding: "0.25rem 0.65rem", fontSize: "0.75rem", letterSpacing: "0.05em", textTransform: "uppercase" }}>Goal {idx + 1}</div>
                       <h3 style={{ fontFamily: headFont, fontSize: "1.15rem", fontWeight: 400, color: "#000", margin: 0, lineHeight: 1.25 }}>{goal.title}</h3>
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexShrink: 0, flexWrap: "wrap" }}>
@@ -570,7 +605,7 @@ export default function ResultsPage() {
                             <div style={{ background: "#f0faf5", padding: "1.5rem", borderRadius: R.md, border: "1px solid rgba(22, 101, 52, 0.1)", boxShadow: "0 2px 10px rgba(22, 101, 52, 0.03)", display: "flex", alignItems: "flex-start", gap: "1rem" }}>
                               <Confetti size={32} weight="duotone" color="#166534" style={{ flexShrink: 0, marginTop: "2px" }} />
                               <div>
-                                <p style={{ fontFamily: headFont, fontWeight: 400, fontSize: "1.1rem", color: "#166534", margin: "0 0 0.375rem" }}>Industry Leader</p>
+                                <p style={{ fontFamily: headFont, fontWeight: 400, fontSize: "1.1rem", color: "#166534", margin: "0 0 0.375rem" }}>Industry leader</p>
                                 <p style={{ fontFamily: bodyFont, fontSize: "0.9rem", color: "var(--color-text)", lineHeight: 1.7, margin: 0 }}>
                                   You’re setting the standard here! Consider sharing your success story with the WiBC community to inspire others.
                                 </p>
@@ -590,7 +625,7 @@ export default function ResultsPage() {
         {/* ── Priority Action Matrix ──────────────────────────────────── */}
         <div style={{ ...card, marginBottom: "1.25rem", padding: 0, overflow: "hidden" }}>
           <div style={{ padding: narrow ? "1.5rem 1.25rem" : "2rem" }}>
-            <SectionHead Icon={SortAscending} title="Where to Focus First" sub="Start with these high-impact areas to get the best results quickly" />
+            <SectionHead Icon={SortAscending} title="Where to focus first" sub="Start with these high-impact areas to get the best results quickly" />
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             {priorityOrder.map(({ goal, score }, rank) => {
@@ -625,9 +660,23 @@ export default function ResultsPage() {
                   >
                     <span style={{ fontFamily: headFont, fontSize: "1.15rem", fontWeight: 400, color: pc.color, minWidth: "28px", flexShrink: 0 }}>#{rank + 1}</span>
                     <div style={{
-                      width: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                      width: "43px", height: "43px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
                     }}>
-                      <img src={currentIcon} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                      <img
+                        src={currentIcon}
+                        alt=""
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                          transform: currentIcon.includes("step-image")
+                            ? "scale(1.05)"
+                            : currentIcon.includes("step2-icon")
+                            ? "scale(0.88)"
+                            : "scale(1.25)",
+                          transformOrigin: "center"
+                        }}
+                      />
                     </div>
                     <div style={{ flex: 1, minWidth: "120px" }}>
                       <p style={{ fontFamily: bodyFont, fontWeight: 600, color: "#000", fontSize: "0.9rem", margin: "0 0 0.1rem" }}>{goal.title}</p>
@@ -747,7 +796,7 @@ export default function ResultsPage() {
                             }}>
                               <Confetti size={26} weight="duotone" color="#166534" style={{ flexShrink: 0, marginTop: "2px" }} />
                               <div>
-                                <p style={{ fontFamily: headFont, fontWeight: 400, fontSize: "0.95rem", color: "#166534", margin: "0 0 0.35rem" }}>Industry Leader</p>
+                                <p style={{ fontFamily: headFont, fontWeight: 400, fontSize: "0.95rem", color: "#166534", margin: "0 0 0.35rem" }}>Industry leader</p>
                                 <p style={{ fontFamily: bodyFont, fontSize: "0.875rem", color: "var(--color-text)", lineHeight: 1.65, margin: 0 }}>
                                   You’re setting the standard here! Consider sharing your success story with the WiBC community to inspire others.
                                 </p>
@@ -767,10 +816,10 @@ export default function ResultsPage() {
         {/* ── Demographics ────────────────────────────────────────────── */}
         {hasDemo && (
           <div style={{ ...card, marginBottom: "1.25rem" }}>
-            <SectionHead Icon={Users} title="Your Team Makeup" sub="A snapshot of the gender balance data you provided" />
+            <SectionHead Icon={Users} title="Your team makeup" sub="A snapshot of the gender balance data you provided" />
             <div style={{ marginBottom: hasQuartiles ? "1.75rem" : 0 }}>
               <p style={{ fontFamily: bodyFont, fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.07em", color: "var(--color-text-muted)", marginBottom: "0.75rem" }}>
-                Company-Wide Gender Balance
+                Company-wide gender balance
               </p>
               <div style={{ display: "flex", height: "28px", borderRadius: R.sm, overflow: "hidden", gap: "2px" }}>
                 {fP > 0 && <div style={{ flex: fP, background: "#FFBB2B", display: "flex", alignItems: "center", justifyContent: "center" }}><span style={{ fontFamily: bodyFont, fontSize: "0.72rem", fontWeight: 700, color: "#000" }}>{fP > 10 ? `${fP}% F` : ""}</span></div>}
@@ -787,7 +836,7 @@ export default function ResultsPage() {
             {hasQuartiles && (
               <div>
                 <p style={{ fontFamily: bodyFont, fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.07em", color: "var(--color-text-muted)", marginBottom: "0.875rem" }}>
-                  Gender Balance Across Pay Levels
+                  Gender balance across pay levels
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem" }}>
                   {quartiles.map(q => {
@@ -825,7 +874,7 @@ export default function ResultsPage() {
           padding: narrow ? "1.75rem 1.25rem" : "2.5rem",
           marginBottom: "1.25rem",
         }}>
-          <SectionHead Icon={Trophy} title="Your Action Plan" />
+          <SectionHead Icon={Trophy} title="Your action plan" />
           <p style={{ fontFamily: bodyFont, fontSize: "1rem", lineHeight: 1.75, color: "var(--color-text)", maxWidth: "780px", marginBottom: "1rem" }}>
             {getProcurementAdvice(maturity_band as any)}
           </p>
