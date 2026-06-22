@@ -12,7 +12,7 @@ const dmSerifText = DM_Serif_Text({
 
 export const metadata: Metadata = {
   title: "Gender Equity Diagnostic | WiBC",
-  description: "Assess your organisation against the 7 core pillars of the Bristol Women in Business Charter.",
+  description: "Assess your organisation against the 7 core pillars of the Women in Business Charter.",
   icons: {
     icon: "/LOGO.webp",
     apple: "/LOGO.webp",
@@ -44,7 +44,7 @@ export default function RootLayout({
             </a>
             <nav>
               <a 
-                href="https://www.bristolwomeninbusinesscharter.org/" 
+                href="https://www.womeninbusinesscharter.org/" 
                 target="_blank" 
                 rel="noreferrer"
                 className="site-nav-link"

@@ -882,7 +882,7 @@ export default function ResultsPage() {
           {!isGeneratingPdf && (
             <div data-html2canvas-ignore="true" style={{ borderTop: "1px solid rgba(255, 187, 43, 0.2)", paddingTop: "1.5rem", display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "space-between", alignItems: "center", marginTop: "1.75rem" }}>
               <p style={{ fontFamily: bodyFont, fontSize: "0.95rem", color: "var(--color-text)", margin: 0, maxWidth: "600px", lineHeight: 1.5 }}>
-                <strong>Ready to take the next step?</strong> Join the Bristol Women in Business Charter and access structured support, peer-learning, and sector recognition. Contact us to discuss how the charter can help you improve your gender equity maturity.
+                <strong>Ready to take the next step?</strong> Join the Women in Business Charter and access structured support, peer-learning, and sector recognition. Contact us to discuss how the charter can help you improve your gender equity maturity.
               </p>
               <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
                 <a
@@ -908,7 +908,7 @@ export default function ResultsPage() {
 
         {/* Footer */}
         <div style={{ textAlign: "center", padding: "1rem 0 2.5rem", color: "var(--color-text-light)", fontFamily: bodyFont, fontSize: "0.8rem" }}>
-          <p>Bristol Women in Business Charter · Gender Equity Diagnostic · {today}</p>
+          <p>Women in Business Charter · Gender Equity Diagnostic · {today}</p>
           {profile.contact_name && <p style={{ marginTop: "0.2rem" }}>Submitted by {profile.contact_name}</p>}
           
           <div style={{ marginTop: "1.5rem", paddingTop: "1.5rem", borderTop: "1px solid rgba(0,0,0,0.06)", display: "inline-block", paddingLeft: "2rem", paddingRight: "2rem" }}>

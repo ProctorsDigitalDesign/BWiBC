@@ -1000,7 +1000,7 @@ export default function AssessmentWizard() {
       </div>
       <h1 style={{ marginBottom: "1rem", fontSize: "2.5rem" }}>Gender equity diagnostic</h1>
       <p style={{ fontSize: "16px", color: "var(--color-text)", maxWidth: "718px", margin: "0 auto 2rem", lineHeight: 1.6 }}>
-        Welcome to the Bristol Women in Business Charter&apos;s Gender Equity Diagnostic. This tool helps you assess your organisation&apos;s maturity across 7 key goals related to gender equity in the workplace.
+        Welcome to the Women in Business Charter&apos;s Gender Equity Diagnostic. This tool helps you assess your organisation&apos;s maturity across 7 key goals related to gender equity in the workplace.
       </p>
       
       <div style={{ background: "var(--color-surface)", padding: "2rem", borderRadius: "var(--radius-md)", textAlign: "left", maxWidth: "718px", margin: "0 auto 2.5rem", border: "1px solid #FFBB2B" }}>
