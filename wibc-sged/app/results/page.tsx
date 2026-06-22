@@ -822,14 +822,14 @@ export default function ResultsPage() {
                 Company-wide gender balance
               </p>
               <div style={{ display: "flex", height: "28px", borderRadius: R.sm, overflow: "hidden", gap: "2px" }}>
-                {fP > 0 && <div style={{ flex: fP, background: "#FFBB2B", display: "flex", alignItems: "center", justifyContent: "center" }}><span style={{ fontFamily: bodyFont, fontSize: "0.72rem", fontWeight: 700, color: "#000" }}>{fP > 10 ? `${fP}% F` : ""}</span></div>}
-                {mP > 0 && <div style={{ flex: mP, background: "#f6911d", display: "flex", alignItems: "center", justifyContent: "center" }}><span style={{ fontFamily: bodyFont, fontSize: "0.72rem", fontWeight: 700, color: "#fff" }}>{mP > 10 ? `${mP}% M` : ""}</span></div>}
-                {nbP > 0 && <div style={{ flex: nbP, background: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center" }}><span style={{ fontFamily: bodyFont, fontSize: "0.72rem", fontWeight: 700, color: "#fff" }}>{nbP > 10 ? `${nbP}%` : ""}</span></div>}
+                {fP > 0 && <div style={{ flex: fP, background: "#FFBB2B", display: "flex", alignItems: "center", justifyContent: "center" }}><span style={{ fontFamily: bodyFont, fontSize: "0.72rem", fontWeight: 700, color: "#000" }}>{fP > 10 ? `${fP}%` : ""}</span></div>}
+                {mP > 0 && <div style={{ flex: mP, background: "#f6911d", display: "flex", alignItems: "center", justifyContent: "center" }}><span style={{ fontFamily: bodyFont, fontSize: "0.72rem", fontWeight: 700, color: "#fff" }}>{mP > 10 ? `${mP}%` : ""}</span></div>}
+                {nbP > 0 && <div style={{ flex: nbP, background: "#8B5CF6", display: "flex", alignItems: "center", justifyContent: "center" }}><span style={{ fontFamily: bodyFont, fontSize: "0.72rem", fontWeight: 700, color: "#fff" }}>{nbP > 10 ? `${nbP}%` : ""}</span></div>}
               </div>
               <div style={{ display: "flex", gap: "1.25rem", marginTop: "0.625rem", flexWrap: "wrap" }}>
                 {fP > 0 && <span style={{ fontFamily: bodyFont, fontSize: "0.825rem", display: "flex", alignItems: "center", gap: "0.35rem", color: "var(--color-text)" }}><span style={{ width: "10px", height: "10px", borderRadius: "2px", background: "#FFBB2B", display: "inline-block" }} /> Female {fP}%</span>}
                 {mP > 0 && <span style={{ fontFamily: bodyFont, fontSize: "0.825rem", display: "flex", alignItems: "center", gap: "0.35rem", color: "var(--color-text)" }}><span style={{ width: "10px", height: "10px", borderRadius: "2px", background: "#f6911d", display: "inline-block" }} /> Male {mP}%</span>}
-                {nbP > 0 && <span style={{ fontFamily: bodyFont, fontSize: "0.825rem", display: "flex", alignItems: "center", gap: "0.35rem", color: "var(--color-text)" }}><span style={{ width: "10px", height: "10px", borderRadius: "2px", background: "var(--color-primary)", display: "inline-block" }} /> Non-Binary {nbP}%</span>}
+                {nbP > 0 && <span style={{ fontFamily: bodyFont, fontSize: "0.825rem", display: "flex", alignItems: "center", gap: "0.35rem", color: "var(--color-text)" }}><span style={{ width: "10px", height: "10px", borderRadius: "2px", background: "#8B5CF6", display: "inline-block" }} /> Other {nbP}%</span>}
               </div>
             </div>
 
@@ -847,7 +847,7 @@ export default function ResultsPage() {
                       <div key={q.label}>
                         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.3rem" }}>
                           <p style={{ fontFamily: bodyFont, fontSize: "0.825rem", color: "var(--color-text)", fontWeight: 500, margin: 0 }}>{q.label}</p>
-                          <p style={{ fontFamily: bodyFont, fontSize: "0.775rem", color: "var(--color-text-muted)", margin: 0 }}>{q.f}% F · {q.m}% M</p>
+                          <p style={{ fontFamily: bodyFont, fontSize: "0.775rem", color: "var(--color-text-muted)", margin: 0 }}>{q.f}% · {q.m}%</p>
                         </div>
                         <div style={{ display: "flex", height: "12px", borderRadius: R.sm, overflow: "hidden", gap: "2px" }}>
                           <div style={{ flex: qF, background: "#FFBB2B", borderRadius: `${R.sm} 0 0 ${R.sm}` }} />
@@ -875,29 +875,32 @@ export default function ResultsPage() {
           marginBottom: "1.25rem",
         }}>
           <SectionHead Icon={Trophy} title="Your action plan" />
-          <p style={{ fontFamily: bodyFont, fontSize: "1rem", lineHeight: 1.75, color: "var(--color-text)", maxWidth: "780px", marginBottom: "1rem" }}>
+          <p style={{ fontFamily: bodyFont, fontSize: "1rem", lineHeight: 1.75, color: "var(--color-text)", maxWidth: "780px", marginBottom: "1.75rem" }}>
             {getProcurementAdvice(maturity_band as any)}
           </p>
-          
-          {total_score < 30 && (
-            <p style={{ fontFamily: bodyFont, fontSize: "1rem", lineHeight: 1.75, color: "var(--color-text)", maxWidth: "780px", marginBottom: "1.75rem" }}>
-              To boost your score, check out the <strong>Where to Focus First</strong> and <strong>Roadmap</strong> sections above. They break down exactly what your business can do next to build a more inclusive, high-performing workplace.
-            </p>
-          )}
 
-          <div style={{ borderTop: "1px solid rgba(255, 187, 43, 0.2)", paddingTop: "1.5rem", display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "space-between", alignItems: "center", marginTop: total_score >= 30 ? "1.75rem" : 0 }}>
-            <p style={{ fontFamily: bodyFont, fontSize: "0.95rem", color: "var(--color-text)", margin: 0, maxWidth: "540px", lineHeight: 1.5 }}>
-              <strong>Ready to take the next step?</strong> Join the Bristol Women in Business Charter and access structured support, peer-learning, and sector recognition.
+          <div style={{ borderTop: "1px solid rgba(255, 187, 43, 0.2)", paddingTop: "1.5rem", display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "space-between", alignItems: "center", marginTop: "1.75rem" }}>
+            <p style={{ fontFamily: bodyFont, fontSize: "0.95rem", color: "var(--color-text)", margin: 0, maxWidth: "600px", lineHeight: 1.5 }}>
+              <strong>Ready to take the next step?</strong> Join the Bristol Women in Business Charter and access structured support, peer-learning, and sector recognition. Contact us to discuss how the charter can help you improve your gender equity maturity.
             </p>
-            <a
-              href="https://www.bristolwomeninbusinesscharter.org/"
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-primary"
-              style={{ textDecoration: "none", display: "inline-block" }}
-            >
-              Visit WiBC
-            </a>
+            <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
+              <a
+                href="mailto:info@womeninbusinesscharter.org?subject=Improving our Gender Equity Maturity"
+                className="btn btn-secondary"
+                style={{ textDecoration: "none", display: "inline-block", background: "#f5f5f4", border: "1px solid #e4e4e0", color: "#444440" }}
+              >
+                Contact Us
+              </a>
+              <a
+                href="https://www.womeninbusinesscharter.org/join-us-become-a-signatory"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-primary"
+                style={{ textDecoration: "none", display: "inline-block" }}
+              >
+                Join WiBC
+              </a>
+            </div>
           </div>
         </div>
 

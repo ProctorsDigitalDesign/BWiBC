@@ -17,6 +17,27 @@ import { GOALS } from "@/lib/goals";
 // 5 to 11: Goals 1 to 7
 const TOTAL_STEPS = GOALS.length + 5; 
 
+const CreditsFooter = () => (
+  <div style={{ textAlign: "center", marginTop: "1.5rem", color: "var(--color-text)", fontFamily: "Aptos, system-ui, sans-serif", fontSize: "0.85rem" }}>
+    Powered by{" "}
+    <a
+      href="https://www.proctorsgroup.com/"
+      target="_blank"
+      rel="noreferrer"
+      style={{
+        color: "#000",
+        textDecoration: "none",
+        fontWeight: 600,
+        transition: "opacity 0.2s"
+      }}
+      onMouseEnter={e => e.currentTarget.style.opacity = "0.7"}
+      onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+    >
+      Proctor + Stevenson
+    </a>
+  </div>
+);
+
 export default function AssessmentWizard() {
   const router = useRouter();
   const [step, setStep] = useState(0);
@@ -86,6 +107,7 @@ export default function AssessmentWizard() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [isRedirectingToStripe, setIsRedirectingToStripe] = useState(false);
+  const [showQuartileInfo, setShowQuartileInfo] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -553,6 +575,7 @@ export default function AssessmentWizard() {
             Next
           </button>
         </div>
+        <CreditsFooter />
       </div>
     </div>
   );
@@ -643,6 +666,7 @@ export default function AssessmentWizard() {
             Next
           </button>
         </div>
+        <CreditsFooter />
       </div>
     </div>
   );
@@ -698,10 +722,10 @@ export default function AssessmentWizard() {
 
         {/* Gender Composition */}
         <div>
-          <span className="form-label" style={{ marginBottom: "0.75rem", display: "block" }}>Workforce Gender Composition (%)</span>
+          <span className="form-label" style={{ marginBottom: "0.75rem", display: "block" }}>Optional Gender Pay Gap Data</span>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "8px" }}>
             <div>
-              <label style={{ fontSize: "0.75rem", color: "var(--color-text-muted)" }}>% Female</label>
+              <label style={{ fontSize: "0.75rem", color: "var(--color-text-muted)", display: "flex", alignItems: "center", height: "20px" }}>Female</label>
               <input
                 type="number"
                 placeholder="%"
@@ -712,7 +736,7 @@ export default function AssessmentWizard() {
               />
             </div>
             <div>
-              <label style={{ fontSize: "0.75rem", color: "var(--color-text-muted)" }}>% Male</label>
+              <label style={{ fontSize: "0.75rem", color: "var(--color-text-muted)", display: "flex", alignItems: "center", height: "20px" }}>Male</label>
               <input
                 type="number"
                 placeholder="%"
@@ -723,7 +747,29 @@ export default function AssessmentWizard() {
               />
             </div>
             <div>
-              <label style={{ fontSize: "0.75rem", color: "var(--color-text-muted)" }}>% Non-Binary</label>
+              <label style={{ fontSize: "0.75rem", color: "var(--color-text-muted)", display: "flex", alignItems: "center", gap: "0.25rem", height: "20px" }}>
+                Other
+                <span
+                  style={{ position: "relative", display: "inline-flex", alignItems: "center", cursor: "help" }}
+                  onMouseEnter={e => {
+                    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+                    const tip = document.getElementById("other-tooltip");
+                    if (tip) {
+                      tip.style.display = "block";
+                      tip.style.top = (rect.bottom + 6) + "px";
+                      tip.style.left = (rect.left + rect.width / 2 - 80) + "px";
+                      tip.style.opacity = "1";
+                      tip.style.transition = "opacity 0.2s ease-in-out";
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    const tip = document.getElementById("other-tooltip");
+                    if (tip) { tip.style.opacity = "0"; setTimeout(() => { if (tip.style.opacity === "0") tip.style.display = "none"; }, 200); }
+                  }}
+                >
+                  <Info size={12} />
+                </span>
+              </label>
               <input
                 type="number"
                 placeholder="%"
@@ -738,15 +784,63 @@ export default function AssessmentWizard() {
         </div>
 
         {/* Pay Quartiles */}
-        <div style={{ overflowX: "auto", marginTop: "1rem" }}>
-          <span className="form-label" style={{ marginBottom: "0.75rem", display: "block" }}>Pay Quartile Gender Composition (%)</span>
+        <div style={{ marginTop: "1rem" }}>
+          <span className="form-label" style={{ marginBottom: showQuartileInfo ? "0.5rem" : "0.75rem", display: "flex", alignItems: "center", gap: "0.375rem" }}>
+            Pay Quartile Gender Composition (%)
+            <button
+              type="button"
+              onClick={() => setShowQuartileInfo(v => !v)}
+              style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "inline-flex", alignItems: "center", color: showQuartileInfo ? "var(--color-primary)" : "var(--color-text-muted)", opacity: showQuartileInfo ? 1 : 0.7, transition: "color 0.2s, opacity 0.2s" }}
+              aria-label="Toggle quartile info"
+            >
+              <Info size={14} />
+            </button>
+          </span>
+          <div style={{
+            maxHeight: showQuartileInfo ? "100px" : "0",
+            opacity: showQuartileInfo ? 1 : 0,
+            overflow: "hidden",
+            transition: "all 0.3s ease-in-out",
+            marginBottom: showQuartileInfo ? "0.75rem" : "0",
+            fontSize: "0.8rem",
+            lineHeight: "1.6",
+            color: "var(--color-text-muted)",
+            fontWeight: "normal",
+          }}>
+            In the context of gender pay gap reporting, the four quartile pay bands are created by working out the percentage of men and women in 4 equally-sized groups, ranked from highest to lowest hourly pay.
+          </div>
+        <div style={{ overflowX: "auto" }}>
           <table className="composition-table" style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.85rem" }}>
             <thead>
               <tr style={{ borderBottom: "1.5px solid var(--color-border)" }}>
                 <th style={{ textAlign: "left", padding: "0.5rem" }}>Quartile</th>
-                <th style={{ textAlign: "center", padding: "0.5rem", width: "75px" }}>% F</th>
-                <th style={{ textAlign: "center", padding: "0.5rem", width: "75px" }}>% M</th>
-                <th style={{ textAlign: "center", padding: "0.5rem", width: "75px" }}>% NB</th>
+                <th style={{ textAlign: "center", padding: "0.5rem", width: "75px" }}>%</th>
+                <th style={{ textAlign: "center", padding: "0.5rem", width: "75px" }}>%</th>
+                <th style={{ textAlign: "center", padding: "0.5rem", width: "75px", whiteSpace: "nowrap", textTransform: "none" }}>
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", justifyContent: "center" }}>
+                    %
+                    <span
+                      style={{ position: "relative", display: "inline-flex", alignItems: "center", cursor: "help" }}
+                      onMouseEnter={e => {
+                        const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+                        const tip = document.getElementById("other-tooltip");
+                        if (tip) {
+                          tip.style.display = "block";
+                          tip.style.top = (rect.bottom + 6) + "px";
+                          tip.style.left = (rect.left + rect.width / 2 - 80) + "px";
+                          tip.style.opacity = "1";
+                          tip.style.transition = "opacity 0.2s ease-in-out";
+                        }
+                      }}
+                      onMouseLeave={() => {
+                        const tip = document.getElementById("other-tooltip");
+                        if (tip) { tip.style.opacity = "0"; setTimeout(() => { if (tip.style.opacity === "0") tip.style.display = "none"; }, 200); }
+                      }}
+                    >
+                      <Info size={12} />
+                    </span>
+                  </span>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -777,8 +871,7 @@ export default function AssessmentWizard() {
             </tbody>
           </table>
         </div>
-
-        {/* Logo Upload */}
+        </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
           {onboarding.logoPreview ? (
             <div style={{ display: "flex", gap: "1.5rem", alignItems: "center", padding: "1.25rem", border: "1px solid var(--color-border)", borderRadius: "var(--radius-md)", backgroundColor: "var(--color-surface-2)" }}>
@@ -825,6 +918,7 @@ export default function AssessmentWizard() {
             Proceed to Payment
           </button>
         </div>
+        <CreditsFooter />
       </div>
     </div>
   );
@@ -836,20 +930,30 @@ export default function AssessmentWizard() {
         <p style={{ fontSize: "0.95rem", color: "#000000" }}>
           A contribution of <strong>£150</strong> is required to support the charter and access the gender equity analysis tool.
         </p>
+        <p style={{ fontSize: "0.8rem", color: "#666666", marginTop: "0.75rem", lineHeight: "1.4" }}>
+          There is no fee for existing charter signatories, you should have been contacted with a signatory access code, please contact us with any issues at{" "}
+          <a href="mailto:info@womeninbusinesscharter.org" style={{ color: "#666666", textDecoration: "underline", fontWeight: "600" }}>
+            info@womeninbusinesscharter.org
+          </a>
+        </p>
       </div>
 
-      <div style={{ background: "var(--color-bg)", padding: "1.5rem", borderRadius: "var(--radius-md)", border: "1.5px solid #FFBB2B", display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
-        <div>
-          <span style={{ fontWeight: 700, display: "block", fontSize: "1rem" }}>WiBC Supporter Subscription</span>
-          <span style={{ fontSize: "0.8rem", color: "var(--color-text-muted)" }}>Includes diagnostic reporting & directory listing</span>
+      <div style={{ background: "#ffffff", padding: "1.5rem", borderRadius: "var(--radius-md)", border: "2px solid #FFBB2B", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "1.5rem", marginBottom: "1.5rem", boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)" }}>
+        <div style={{ flex: 1 }}>
+          <span style={{ fontWeight: 700, display: "block", fontSize: "1.1rem", color: "#000000", marginBottom: "0.35rem" }}>WiBC Supporter Subscription</span>
+          <span style={{ fontSize: "0.85rem", color: "#666666", lineHeight: "1.5", display: "block" }}>Includes diagnostic report with actionable path to gender equity.</span>
         </div>
-        <span style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--color-primary)" }}>£150.00</span>
+        <div style={{ textAlign: "right", flexShrink: 0 }}>
+          <span style={{ fontSize: "1.85rem", fontWeight: 800, color: "#FFBB2B", lineHeight: "1" }}>£150.00</span>
+          <span style={{ display: "block", fontSize: "0.75rem", color: "#888888", marginTop: "0.35rem", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.5px" }}>One-time fee</span>
+        </div>
+      </div>
+
+      <div style={{ display: "flex", gap: "0.5rem", alignItems: "center", justifyContent: "center", color: "var(--color-text-muted)", fontSize: "0.8rem", marginBottom: "1.5rem", marginTop: "-0.5rem" }}>
+        <span>Secured via Stripe gateway</span>
       </div>
 
       <form onSubmit={e => { e.preventDefault(); handleStripeCheckout(); }}>
-        <div style={{ display: "flex", gap: "0.5rem", alignItems: "center", justifyContent: "center", color: "var(--color-text-muted)", fontSize: "0.8rem", margin: "1.5rem 0" }}>
-          <span>🔒 Secured via Stripe gateway</span>
-        </div>
         
         {submitError && (
           <div className="error-banner" style={{ marginBottom: "1rem" }}>
@@ -885,6 +989,7 @@ export default function AssessmentWizard() {
           </button>
         </div>
       </form>
+      <CreditsFooter />
     </div>
   );
 
@@ -905,7 +1010,7 @@ export default function AssessmentWizard() {
         <ul style={{ paddingLeft: "1.5rem", color: "var(--color-text)", fontSize: "1rem", display: "flex", flexDirection: "column", gap: "8px", lineHeight: 1.6 }}>
           <li style={{ listStyleType: "disc" }}>You&apos;ll be asked a single maturity question across 7 key goals.</li>
           <li style={{ listStyleType: "disc" }}>For each goal, select the option that best reflects your current organisational practice. You&apos;ll have the opportunity for a more granular assessment once you&apos;ve run this initial diagnostic.</li>
-          <li style={{ listStyleType: "disc" }}>The assessment takes approximately 5 minutes to complete.</li>
+          <li style={{ listStyleType: "disc" }}>The assessment takes approximately 30 minutes to complete.</li>
           <li style={{ listStyleType: "disc" }}>At the end, you&apos;ll receive a detailed maturity scorecard and recommended next steps.</li>
         </ul>
       </div>
@@ -914,6 +1019,7 @@ export default function AssessmentWizard() {
         <button className="btn btn-secondary" onClick={handlePrev}>Back</button>
         <button className="btn btn-primary" onClick={handleNext}>Start diagnostic</button>
       </div>
+      <CreditsFooter />
     </div>
   );
 
@@ -959,7 +1065,10 @@ export default function AssessmentWizard() {
         <div className="scale-grid cols-1" role="group" aria-label={`Maturity options for ${goal.title}`}>
           {goal.levels.map((level) => {
             const isSelected = currentScore === level.value;
-            const labelText = level.label.includes(':') ? level.label.split(':')[1].trim() : level.label;
+            const cleanLabel = (level.label.includes(':') ? level.label.split(':')[1].trim() : level.label)
+              .replace(/^Level\s+\d+\s+\(([^)]+)\)$/i, '$1')
+              .replace(/^Level\s+\d+\s+/i, '');
+            const labelText = `Level ${level.value} (${cleanLabel})`;
             return (
               <button
                 key={level.value}
@@ -1013,6 +1122,7 @@ export default function AssessmentWizard() {
             )}
           </button>
         </div>
+        <CreditsFooter />
       </div>
     );
   };
@@ -1061,25 +1171,39 @@ export default function AssessmentWizard() {
           {step >= 5 && step < TOTAL_STEPS && renderAssessmentStep()}
         </div>
       </div>
-      
-      {/* Global Footer */}
-      <div style={{ textAlign: "center", padding: "1.5rem 1rem 2rem", color: "var(--color-text)", fontFamily: "Aptos, system-ui, sans-serif", fontSize: "0.85rem" }}>
-        Powered by{" "}
-        <a
-          href="https://www.proctorsgroup.com/"
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            color: "#000",
-            textDecoration: "none",
-            fontWeight: 600,
-            transition: "opacity 0.2s"
-          }}
-          onMouseEnter={e => e.currentTarget.style.opacity = "0.7"}
-          onMouseLeave={e => e.currentTarget.style.opacity = "1"}
-        >
-          Proctor + Stevenson
-        </a>
+      <div
+        id="other-tooltip"
+        style={{
+          display: "none",
+          opacity: "0",
+          position: "fixed",
+          transform: "none",
+          background: "#1e293b",
+          color: "#f8fafc",
+          padding: "0.5rem 0.75rem",
+          borderRadius: "6px",
+          fontSize: "0.75rem",
+          lineHeight: "1.4",
+          width: "160px",
+          zIndex: 9999,
+          boxShadow: "0 8px 32px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.16)",
+          pointerEvents: "none",
+          fontWeight: "normal",
+          whiteSpace: "normal",
+        }}
+      >
+        <span id="other-tooltip-arrow" style={{
+          position: "absolute",
+          top: "-5px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: 0,
+          height: 0,
+          borderLeft: "5px solid transparent",
+          borderRight: "5px solid transparent",
+          borderBottom: "5px solid #1e293b",
+        }} />
+        non-binary, intersex, prefer not to say, other
       </div>
     </div>
   );

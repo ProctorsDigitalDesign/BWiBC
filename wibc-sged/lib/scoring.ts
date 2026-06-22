@@ -42,7 +42,7 @@ export function getProcurementAdvice(band: MaturityBand): string {
     Developing:
       "You are making great progress in embedding inclusive practices. We invite you to join the WiBC as a 'Supporter' or 'Signatory' to access peer-learning and structured support to reach the next level.",
     Strategic:
-      "Outstanding work! Your strong alignment with gender equity values positions you as a highly attractive partner for procurement teams. Consider becoming a full WiBC Signatory to publicly showcase your commitment.",
+      "Outstanding work! Your strong alignment with gender equity values positions you as a highly attractive employer with the tools to attract and retain diverse women in your organisation. Consider becoming a full WiBC Signatory to publicly showcase your commitment and have the chance to join a network of peers.",
     Innovating:
       "Exceptional! Your organisation is a true sector leader. We invite you to partner with WiBC to co-author best practice guides, share your insights, and mentor other businesses in the region.",
   }
@@ -78,7 +78,7 @@ export function getGoalMaturityLabel(score: number): string {
     4: 'Strategic',
     5: 'Innovating',
   }
-  return labels[score] ?? 'Not Assessed'
+  return score > 0 ? `Level ${score} (${labels[score]})` : (labels[score] ?? 'Not Assessed')
 }
 
 /**

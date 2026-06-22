@@ -169,7 +169,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: var(--font-heading), 'DM Serif Text', Georgia, serif;
   font-size: 1rem;
   font-weight: 800;
-  color: var(--color-primary);
+  color: #000000;
   letter-spacing: 0;
   line-height: 1.1;
   margin: 0;
@@ -233,6 +233,7 @@ a:hover { color: var(--color-primary-light); }
 }
 .btn-primary:hover:not(:disabled) {
   background-color: #e5a727;
+  color: #ffffff;
   box-shadow: 0 4px 12px rgba(255, 187, 43, 0.35);
   transform: translateY(-1px);
 }
@@ -832,6 +833,14 @@ a:hover { color: var(--color-primary-light); }
   visibility: visible;
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+@keyframes quartileTooltipIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+.quartile-tooltip-show {
+  animation: quartileTooltipIn 0.16s ease-out forwards;
 }
 
 /* ─── Step Intro Background ──────────────────────────────────────────────── */

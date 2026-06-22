@@ -17,7 +17,7 @@ export const GOALS: Goal[] = [
   {
     id: "flexible_working",
     title: "Flexible & part-time working",
-    question: "Does your organisation proactively offer and role-model flexible working at all levels?",
+    question: "Promote and make available flexible and part-time working, especially in senior level roles that attract higher levels of pay and conditions",
     layout: "grid-3",
     levels: [
       { value: 1, label: "Foundational", text: "A 'Ways of Working' policy exists including flexible working and hybrid working standards. Formal Flexible Working Requests are handled on a case-by-case basis as per statutory law.", guide: "• Establish a 'Ways of Working' policy including hybrid standards.\n• Handle formal Flexible Working Requests proactively." },
@@ -30,22 +30,22 @@ export const GOALS: Goal[] = [
   {
     id: "senior_representation",
     title: "Representative senior leadership",
-    question: "Do women, including those from marginalised backgrounds, have equal representation in your senior leadership and Board?",
+    question: "Increase the number of women at senior levels and on the board",
     layout: "grid-3",
     levels: [
-      { value: 1, label: "Foundational", text: "Gender representation is tracked at a high level. A basic commitment to diversity is included in the annual report.", guide: "• Track gender representation at a high level.\n• Include a basic commitment to diversity in the annual report." },
+      { value: 1, label: "Level 1 (Foundational)", text: "Gender representation is tracked at a high level. A basic commitment to diversity is included in your annual reporting.", guide: "• Track gender representation at a high level.\n• Include a basic commitment to diversity in your annual reporting." },
       { value: 2, label: "Developing", text: "The organisation sets internal gender targets. 'Stay and develop interviews' are conducted with women in middle management to understand retention and support progression.", guide: "• Set internal gender targets.\n• Conduct 'Stay and develop interviews' with women in middle management to understand retention and support progression." },
       { value: 3, label: "Embedding", text: "Intersectional data is collected. Specific targets are set for women of all backgrounds (Race/Disability/Class/Sexuality) to be represented at all levels. Role profiles are audited to remove class-coded requirements (e.g. university bias).", guide: "• Collect intersectional data and set specific representation targets for women of all backgrounds.\n• Audit role profiles to remove class-coded requirements like university bias." },
-      { value: 4, label: "Strategic", text: "A formal 'Sponsorship' programme exists where C-suite leaders use their influence to pull marginalised women into high-level rooms. Promotion and interview panels are always diverse, using external advisors where necessary.", guide: "• Create a formal 'Sponsorship' programme where C-suite leaders advocate for marginalised women.\n• Ensure promotion and interview panels are diverse, using external advisors if necessary." },
+      { value: 4, label: "Level 4 (Strategic)", text: "A formal 'Sponsorship' programme exists where C-suite leaders use their influence to include marginalised women's voices in high-level meetings and/or use reverse mentoring. Promotion and interview panels are always diverse, using external advisors where necessary.", guide: "• Create a formal 'Sponsorship' programme to include marginalised women's voices in high-level meetings and/or use reverse mentoring.\n• Ensure promotion and interview panels are diverse, using external advisors if necessary." },
       { value: 5, label: "Innovating", text: "Executive bonuses are directly linked to intersectional diversity outcomes. Radical transparency: External data dashboards measure the 'career velocity' and progression of different demographic groups to drive investment.", guide: "• Directly link executive bonuses to intersectional diversity outcomes.\n• Implement external data dashboards to measure the 'career velocity' of different demographic groups." }
     ]
   },
   {
     id: "executive_accountability",
     title: "Executive accountability & safe culture",
-    question: "Is there clear executive accountability for gender equity and a proven 'Preventative Duty' regarding workplace safety?",
+    question: "Make at least one member of the senior executive team responsible for reporting on gender equality and inclusion",
     levels: [
-      { value: 1, label: "Foundational", text: "An executive is named as the EDI lead. A standard anti-harassment policy is in place.", guide: "• Name an executive as the EDI lead.\n• Establish a standard anti-harassment policy." },
+      { value: 1, label: "Foundational", text: "An executive is named as the equity and inclusion lead. A standard anti-harassment policy is in place.", guide: "• Name an executive as the equity and inclusion lead.\n• Establish a standard anti-harassment policy." },
       { value: 2, label: "Developing", text: "Mandatory active anti-racism and anti-misogyny training is introduced for managers. Domestic abuse support is included in HR handbooks.", guide: "• Introduce mandatory active anti-racism and anti-misogyny training for managers.\n• Include domestic abuse support in HR handbooks." },
       { value: 3, label: "Embedding", text: "Psychological safety is measured via anonymous surveys. ERGs (Employee Resource Groups) are in place and are consulted on policy co-design, including the formal establishment of a dedicated, funded 'Menopause Circle' or peer support network as an active subgroup. A zero-tolerance approach to microaggressions and the 'Preventative Duty' regarding harassment is role-modelled.", guide: "• Measure psychological safety via anonymous surveys.\n• Consult Employee Resource Groups (ERGs) on policy co-design and establish a funded 'Menopause Circle'.\n• Role-model a zero-tolerance approach to microaggressions." },
       { value: 4, label: "Strategic", text: "Comprehensive women's health retention plans (Menopause, Fertility, Pregnancy Loss) are active and include specialist coaching, supported by an active Menopause Workplace Risk Assessment Checklist integrated into Health & Safety workflows. Include a specific, mandatory annual module for line managers focusing on navigating conversations, understanding accommodations, and removing performance biases associated with menopause. The Executive Lead presents EDI progress to the Board quarterly with financial-grade rigour.", guide: "• Activate comprehensive women's health retention plans with specialist coaching.\n• Integrate a Menopause Workplace Risk Assessment into Health & Safety workflows.\n• Deliver specific annual line manager training on removing performance biases.\n• Present EDI progress to the Board quarterly." },
@@ -55,7 +55,7 @@ export const GOALS: Goal[] = [
   {
     id: "frontline_progression",
     title: "Progression from lower-paid roles",
-    question: "Do you have clear pathways to management for women in frontline, operational, or lower-paid roles?",
+    question: "Encourage and support female employees in lower paid and lower skilled occupations to progress through the business, through training and other on-going support",
     levels: [
       { value: 1, label: "Foundational", text: "Internal vacancies are posted on staff boards. All staff have development plans in place and regular 121's, additional training is available upon request.", guide: "• Post internal vacancies on staff boards.\n• Ensure all staff have development plans and regular 1-to-1s." },
       { value: 2, label: "Developing", text: "Visual career maps show pathways from entry-level to management. Training is held during core hours and outside school holidays to support those with caring duties.", guide: "• Create visual career maps showing pathways from entry-level to management.\n• Hold training during core hours and outside school holidays to support carers." },
@@ -67,12 +67,12 @@ export const GOALS: Goal[] = [
   {
     id: "intersectional_pay_gap",
     title: "Closing the intersectional pay gap",
-    question: "Are you transparent about pay and committed to closing intersectional pay and pension gaps?",
+    question: "Work towards closing the gender pay gap",
     layout: "grid-3",
     levels: [
       { value: 1, label: "Foundational", text: "Statutory Gender Pay Gap reporting is completed. Basic equal pay audits are conducted.", guide: "• Complete statutory Gender Pay Gap reporting.\n• Conduct basic equal pay audits." },
       { value: 2, label: "Developing", text: "Salary bands are published internally. The organisation is an accredited Real Living Wage employer for all staff and contractors.", guide: "• Publish salary bands internally.\n• Become an accredited Real Living Wage employer for all staff and contractors." },
-      { value: 3, label: "Embedding", text: "Voluntary reporting on Ethnicity and Disability pay gaps. All job adverts must state specific flexible working options, available leave policies (e.g., enhanced parental/caring leave), and a clear salary range (no 'competitive' labels).", guide: "• Report voluntarily on Ethnicity and Disability pay gaps.\n• State specific flexible working options, available leave policies, and clear salary ranges on all job adverts." },
+      { value: 3, label: "Embedding", text: "Reporting is completed on Ethnicity and Disability pay gaps. All job adverts must state specific flexible working options, available leave policies (e.g., enhanced parental/caring leave), and a clear salary range (no 'competitive' labels).", guide: "• Report on Ethnicity and Disability pay gaps.\n• State specific flexible working options, available leave policies, and clear salary ranges on all job adverts." },
       { value: 4, label: "Strategic", text: "Fixed starting salaries are implemented to remove the 'negotiation penalty'. Full employer pension contributions are maintained during the entire duration of all forms of parental leave.", guide: "• Implement fixed starting salaries to remove the 'negotiation penalty'.\n• Maintain full employer pension contributions during all forms of parental leave." },
       { value: 5, label: "Innovating", text: "The organisation provides financial management training and support and publishes a time-bound 'Wealth Equity' plan. This addresses the 'motherhood penalty' and the pension gap, assessing the total financial health and long-term security of female employees.", guide: "• Provide financial management training.\n• Publish a time-bound 'Wealth Equity' plan to address the 'motherhood penalty' and pension gap." }
     ]
@@ -80,7 +80,7 @@ export const GOALS: Goal[] = [
   {
     id: "bias_free_recruitment",
     title: "Bias-free recruitment & appraisals",
-    question: "Are your recruitment and performance systems designed to be neuro-inclusive and free from systemic bias?",
+    question: "Implement recruitment, appraisal, personal development and promotion processes that are non-discriminatory towards women and are free from unconscious bias",
     layout: "grid-3",
     levels: [
       { value: 1, label: "Foundational", text: "Hiring managers take annual 'Unconscious Bias' training modules.", guide: "• Ensure hiring managers take annual 'Unconscious Bias' training modules." },
@@ -93,7 +93,7 @@ export const GOALS: Goal[] = [
   {
     id: "sponsorship_networks",
     title: "Mentoring, sponsorship & networks",
-    question: "Do you provide women with the social capital and networking opportunities needed to thrive?",
+    question: "Support women where they are under-represented, through mentoring and women's networks",
     layout: "grid-3",
     levels: [
       { value: 1, label: "Foundational", text: "A women's network exists and holds occasional social or networking events during working hours.", guide: "• Establish a women's network that holds occasional events during working hours." },

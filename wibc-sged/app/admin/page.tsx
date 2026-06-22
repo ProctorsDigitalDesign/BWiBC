@@ -774,13 +774,13 @@ export default function AdminPage() {
                             <div style={{ display: "flex", width: "100%", height: "12px", borderRadius: "6px", overflow: "hidden", marginBottom: "0.5rem" }}>
                               <div style={{ width: `${activeAssessment.workforce_female}%`, background: "var(--color-primary)" }} />
                               <div style={{ width: `${activeAssessment.workforce_male}%`, background: "#f6911d" }} />
-                              {activeAssessment.workforce_non_binary > 0 && <div style={{ width: `${activeAssessment.workforce_non_binary}%`, background: "#FFBB2B" }} />}
+                              {activeAssessment.workforce_non_binary > 0 && <div style={{ width: `${activeAssessment.workforce_non_binary}%`, background: "#8B5CF6" }} />}
                             </div>
                             <div style={{ display: "flex", alignItems: "center", gap: "1rem", fontSize: "0.8rem", color: "var(--color-text)" }}>
-                              <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><span style={{ width: "8px", height: "8px", borderRadius: "2px", background: "var(--color-primary)" }} /> {activeAssessment.workforce_female}% F</div>
-                              <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><span style={{ width: "8px", height: "8px", borderRadius: "2px", background: "#f6911d" }} /> {activeAssessment.workforce_male}% M</div>
+                              <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><span style={{ width: "8px", height: "8px", borderRadius: "2px", background: "var(--color-primary)" }} /> {activeAssessment.workforce_female}%</div>
+                              <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><span style={{ width: "8px", height: "8px", borderRadius: "2px", background: "#f6911d" }} /> {activeAssessment.workforce_male}%</div>
                               {activeAssessment.workforce_non_binary > 0 && (
-                                <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><span style={{ width: "8px", height: "8px", borderRadius: "2px", background: "#FFBB2B" }} /> {activeAssessment.workforce_non_binary}% NB</div>
+                                <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><span style={{ width: "8px", height: "8px", borderRadius: "2px", background: "#8B5CF6" }} /> {activeAssessment.workforce_non_binary}%</div>
                               )}
                             </div>
                           </div>

@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
             currency: "gbp",
             product_data: {
               name: "WiBC Supporter Subscription",
-              description: "Includes diagnostic reporting & directory listing",
+              description: "Includes diagnostic report with actionable path to gender equity.",
             },
             unit_amount: 15000, // £150.00
           },

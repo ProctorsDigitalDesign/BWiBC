@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   title: "Gender Equity Diagnostic | WiBC",
   description: "Assess your organisation against the 7 core pillars of the Bristol Women in Business Charter.",
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: "/LOGO.webp",
+    apple: "/LOGO.webp",
   }
 };
 
@@ -31,14 +31,14 @@ export default function RootLayout({
           <div className="site-header-content">
             <a href="/" className="site-logo">
               <Image 
-                src="/logo.png" 
+                src="/LOGO.webp" 
                 alt="WiBC logo" 
                 width={40} 
                 height={40}
                 priority
               />
               <div className="site-logo-text">
-                <p className="site-logo-title">Bristol WiBC</p>
+                <p className="site-logo-title">Women in Business Charter</p>
                 <p className="site-logo-sub">Gender Equity Diagnostic</p>
               </div>
             </a>
