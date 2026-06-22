@@ -879,29 +879,31 @@ export default function ResultsPage() {
             {getProcurementAdvice(maturity_band as any)}
           </p>
 
-          <div style={{ borderTop: "1px solid rgba(255, 187, 43, 0.2)", paddingTop: "1.5rem", display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "space-between", alignItems: "center", marginTop: "1.75rem" }}>
-            <p style={{ fontFamily: bodyFont, fontSize: "0.95rem", color: "var(--color-text)", margin: 0, maxWidth: "600px", lineHeight: 1.5 }}>
-              <strong>Ready to take the next step?</strong> Join the Bristol Women in Business Charter and access structured support, peer-learning, and sector recognition. Contact us to discuss how the charter can help you improve your gender equity maturity.
-            </p>
-            <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
-              <a
-                href="mailto:info@womeninbusinesscharter.org?subject=Improving our Gender Equity Maturity"
-                className="btn btn-secondary"
-                style={{ textDecoration: "none", display: "inline-block", background: "#f5f5f4", border: "1px solid #e4e4e0", color: "#444440" }}
-              >
-                Contact Us
-              </a>
-              <a
-                href="https://www.womeninbusinesscharter.org/join-us-become-a-signatory"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-primary"
-                style={{ textDecoration: "none", display: "inline-block" }}
-              >
-                Join WiBC
-              </a>
+          {!isGeneratingPdf && (
+            <div data-html2canvas-ignore="true" style={{ borderTop: "1px solid rgba(255, 187, 43, 0.2)", paddingTop: "1.5rem", display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "space-between", alignItems: "center", marginTop: "1.75rem" }}>
+              <p style={{ fontFamily: bodyFont, fontSize: "0.95rem", color: "var(--color-text)", margin: 0, maxWidth: "600px", lineHeight: 1.5 }}>
+                <strong>Ready to take the next step?</strong> Join the Bristol Women in Business Charter and access structured support, peer-learning, and sector recognition. Contact us to discuss how the charter can help you improve your gender equity maturity.
+              </p>
+              <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
+                <a
+                  href="mailto:info@womeninbusinesscharter.org?subject=Improving our Gender Equity Maturity"
+                  className="btn btn-secondary"
+                  style={{ textDecoration: "none", display: "inline-block", background: "#f5f5f4", border: "1px solid #e4e4e0", color: "#444440" }}
+                >
+                  Contact Us
+                </a>
+                <a
+                  href="https://www.womeninbusinesscharter.org/join-us-become-a-signatory"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-primary"
+                  style={{ textDecoration: "none", display: "inline-block" }}
+                >
+                  Join WiBC
+                </a>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Footer */}
