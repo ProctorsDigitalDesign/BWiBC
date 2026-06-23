@@ -926,7 +926,7 @@ export default function AssessmentWizard() {
   const renderPaymentStep = () => (
     <div className="card payment-card" style={{ maxWidth: "560px", margin: "0 auto", padding: "3rem" }}>
       <div className="intake-header" style={{ textAlign: "center", marginBottom: "2rem", borderBottom: "none", paddingBottom: 0 }}>
-        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Confirm contribution</h2>
+        <h2 style={{ fontSize: "2.5rem", color: "#000000", marginBottom: "0.5rem" }}>Supporter contribution</h2>
         <p style={{ fontSize: "0.95rem", color: "#000000" }}>
           A contribution of <strong>£150</strong> is required to support the charter and access the gender equity analysis tool.
         </p>
