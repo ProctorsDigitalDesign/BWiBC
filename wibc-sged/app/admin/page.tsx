@@ -108,6 +108,8 @@ export default function AdminPage() {
   // Selection States
   const [selectedSupplierId, setSelectedSupplierId] = useState<string | null>(null);
   const [selectedAssessmentId, setSelectedAssessmentId] = useState<string | null>(null);
+  const [selectedItemIds, setSelectedItemIds] = useState<string[]>([]);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     const savedSecret = sessionStorage.getItem("wibc_admin_secret");
@@ -156,6 +158,56 @@ export default function AdminPage() {
     setIsAuthenticated(false);
     setSelectedSupplierId(null);
     setSelectedAssessmentId(null);
+    setSelectedItemIds([]);
+  };
+
+  const handleDeleteSelected = async () => {
+    if (selectedItemIds.length === 0) return;
+    if (!window.confirm(`Are you sure you want to delete ${selectedItemIds.length} item(s)? This action cannot be undone.`)) return;
+
+    setIsDeleting(true);
+    try {
+      const res = await fetch("/api/admin/suppliers", {
+        method: "DELETE",
+        headers: { 
+          "x-admin-secret": secret,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ ids: selectedItemIds }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Failed to delete");
+      }
+
+      setSuppliers(prev => prev.filter(s => !selectedItemIds.includes(s.id)));
+      setSelectedItemIds([]);
+      if (selectedSupplierId && selectedItemIds.includes(selectedSupplierId)) {
+        setSelectedSupplierId(null);
+      }
+    } catch (err: any) {
+      alert(`Error deleting items: ${err.message}`);
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
+  const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      setSelectedItemIds(paginatedSuppliers.map(s => s.id));
+    } else {
+      setSelectedItemIds([]);
+    }
+  };
+
+  const handleSelect = (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
+    e.stopPropagation();
+    if (e.target.checked) {
+      setSelectedItemIds(prev => [...prev, id]);
+    } else {
+      setSelectedItemIds(prev => prev.filter(i => i !== id));
+    }
   };
 
   const handleDownloadCSV = async () => {
@@ -465,15 +517,26 @@ export default function AdminPage() {
           
           {/* Command Bar */}
           <div style={{ padding: "1.25rem 1.5rem", borderBottom: "1px solid var(--color-border-light)", display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "space-between", background: "#fff" }}>
-            <div style={{ display: "flex", alignItems: "center", position: "relative", flex: "1 1 350px", maxWidth: "500px" }}>
-              <Search size={18} style={{ position: "absolute", left: "1rem", color: "var(--color-text-muted)" }} />
-              <input
-                type="text"
-                style={{ width: "100%", padding: "0.75rem 1rem 0.75rem 2.75rem", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "var(--radius-full)", fontSize: "0.9rem", outline: "none", transition: "all 0.2s" }}
-                placeholder="Search companies, contacts..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
+            <div style={{ display: "flex", alignItems: "center", position: "relative", flex: "1 1 350px", maxWidth: "500px", gap: "1rem" }}>
+              <div style={{ display: "flex", alignItems: "center", position: "relative", flex: 1 }}>
+                <Search size={18} style={{ position: "absolute", left: "1rem", color: "var(--color-text-muted)" }} />
+                <input
+                  type="text"
+                  style={{ width: "100%", padding: "0.75rem 1rem 0.75rem 2.75rem", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "var(--radius-full)", fontSize: "0.9rem", outline: "none", transition: "all 0.2s" }}
+                  placeholder="Search companies, contacts..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+              {selectedItemIds.length > 0 && (
+                <button
+                  onClick={handleDeleteSelected}
+                  disabled={isDeleting}
+                  style={{ padding: "0.75rem 1.25rem", background: "var(--color-error, #ef4444)", color: "#fff", border: "none", borderRadius: "var(--radius-full)", fontSize: "0.85rem", fontWeight: 600, cursor: "pointer", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "0.5rem" }}
+                >
+                  {isDeleting ? "Deleting..." : `Delete Selected (${selectedItemIds.length})`}
+                </button>
+              )}
             </div>
             
             <div style={{ display: "flex", alignItems: "center", position: "relative" }}>
@@ -498,7 +561,14 @@ export default function AdminPage() {
             <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", tableLayout: "fixed" }}>
               <thead>
                 <tr style={{ borderBottom: "1px solid var(--color-border)", background: "var(--color-surface-2)", color: "var(--color-text-muted)", fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                  <th style={{ padding: "1rem 1.5rem", cursor: "pointer", userSelect: "none", width: "35%" }} onClick={() => handleSort("company")}>
+                  <th style={{ padding: "1rem 1.5rem", width: "5%" }}>
+                    <input 
+                      type="checkbox" 
+                      onChange={handleSelectAll} 
+                      checked={paginatedSuppliers.length > 0 && selectedItemIds.length === paginatedSuppliers.length}
+                    />
+                  </th>
+                  <th style={{ padding: "1rem 1.5rem", cursor: "pointer", userSelect: "none", width: "30%" }} onClick={() => handleSort("company")}>
                     <div style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}>Company <SortIcon columnKey="company" /></div>
                   </th>
                   <th style={{ padding: "1rem", cursor: "pointer", userSelect: "none", width: "15%" }} onClick={() => handleSort("size")}>
@@ -537,9 +607,17 @@ export default function AdminPage() {
                           borderBottom: "1px solid var(--color-border-light)",
                           cursor: "pointer",
                           transition: "background-color 0.2s ease",
+                          backgroundColor: selectedItemIds.includes(supplier.id) ? "var(--color-primary-alpha)" : "transparent"
                         }}
                         className="admin-row-hover"
                       >
+                        <td style={{ padding: "1.25rem 1.5rem" }} onClick={(e) => e.stopPropagation()}>
+                          <input 
+                            type="checkbox" 
+                            checked={selectedItemIds.includes(supplier.id)}
+                            onChange={(e) => handleSelect(e, supplier.id)}
+                          />
+                        </td>
                         <td style={{ padding: "1.25rem 1.5rem" }}>
                           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
                             <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "var(--color-primary-alpha)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.9rem", fontWeight: 700, flexShrink: 0 }}>
@@ -612,7 +690,7 @@ export default function AdminPage() {
                   
                   {paginatedSuppliers.length === 0 && (
                     <tr>
-                      <td colSpan={5} style={{ padding: "4rem 2rem", textAlign: "center" }}>
+                      <td colSpan={6} style={{ padding: "4rem 2rem", textAlign: "center" }}>
                         <div style={{ display: "inline-flex", padding: "1rem", borderRadius: "50%", background: "var(--color-surface-2)", color: "var(--color-text-light)", marginBottom: "1rem" }}>
                           <Search size={32} />
                         </div>

@@ -52,3 +52,34 @@ export async function GET(request: NextRequest) {
 
   return NextResponse.json({ suppliers: data })
 }
+
+export async function DELETE(request: NextRequest) {
+  const secret = request.headers.get('x-admin-secret')
+  if (!secret || secret !== process.env.ADMIN_SECRET) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
+  try {
+    const { ids } = await request.json()
+    if (!ids || !Array.isArray(ids) || ids.length === 0) {
+      return NextResponse.json({ error: 'Invalid request: no ids provided' }, { status: 400 })
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const db = createAdminClient() as any
+
+    const { error } = await db
+      .from('suppliers')
+      .delete()
+      .in('id', ids)
+
+    if (error) {
+      console.error('[Admin] Suppliers delete error:', error)
+      return NextResponse.json({ error: 'Database error', detail: error.message }, { status: 500 })
+    }
+
+    return NextResponse.json({ success: true })
+  } catch (err: any) {
+    return NextResponse.json({ error: 'Server error', detail: err.message }, { status: 500 })
+  }
+}
