@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
       success_url: `${origin}/?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/`,
       customer_email: body.email || undefined,
-      allow_promotion_codes: true,
+      discounts: [{ coupon: "Ax1T3b4mI29" }],
     });
 
     return NextResponse.json({ checkoutUrl: session.url });
